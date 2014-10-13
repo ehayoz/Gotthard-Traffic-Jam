@@ -1,15 +1,13 @@
 # MATLAB Fall 2014 – Research Plan (Template)
 (text between brackets to be removed)
 
-> * Group Name: (be creative!)
-> * Group participants names: (alphabetically sorted by last name)
-> * Project Title: (can be changed later)
+> * Group Name: 
+> * Group participants names: Eric Hayoz, Janick Zwyssig
+> * Project Title: Gotthard Traffic Jam
 
 ## General Introduction
 
-(States your motivation clearly: why is it important / interesting to solve this problem?)
-(Add real-world examples, if any)
-(Put the problem into a historical context, from what does it originate? Are there already some proposed solutions?)
+Traffic is something every one of us faces in daily life. We want to model the traffic situation in front of the Gotthard-Strassentunnel at Göschnenen/UR. A further goal would be to optimize the current situation.
 
 ## The Model
 
