@@ -1,25 +1,24 @@
 # MATLAB Fall 2014 – Research Plan (Template)
-(text between brackets to be removed)
 
-> * Group Name: (be creative!)
-> * Group participants names: (alphabetically sorted by last name)
-> * Project Title: (can be changed later)
+> * Group Name: Traffic Jammers
+> * Group participants names: Eric Hayoz, Janick Zwyssig
+> * Project Title: Optimizing Traffic Flow At „Gotthard-Strassentunnel“
 
 ## General Introduction
 
-(States your motivation clearly: why is it important / interesting to solve this problem?)
-(Add real-world examples, if any)
-(Put the problem into a historical context, from what does it originate? Are there already some proposed solutions?)
+Traffic is something every one of us faces in daily life. We want to model the traffic situation in front of the "Gotthard-Strassentunnel Nord" at Göschenenen/UR. A further goal would be to optimize the current situation.
 
 ## The Model
 
-(Define dependent and independent variables you want to study. Say how you want to measure them.) (Why is your model a good abtraction of the problem you want to study?) (Are you capturing all the relevant aspects of the problem?)
+Simulate 2-to-1-lane reduction (situation at "Gotthard-Strassentunnel Nord") and implement:
+Nagel-Schreckenberg-Model / Intelligent Driver Model (?)
+
+Using Dataset ASTRA / RAPP (Gotthard-Strassentunnel)
 
 
 ## Fundamental Questions
 
-(At the end of the project you want to find the answer to these questions)
-(Formulate a few, clear questions. Articulate them in sub-questions, from the more general to the more specific. )
+How can different methods like drop counting or speed limits optimize traffic flow?
 
 
 ## Expected Results
@@ -29,12 +28,18 @@
 
 ## References 
 
+http://www.vi-mediathek.de/sek_2/Verkehrsfluss_geschw/Verkehrsfluss.htm
+
 (Add the bibliographic references you intend to use)
 (Explain possible extension to the above models)
 (Code / Projects Reports of the previous year)
 
 
 ## Research Methods
+
+Nagel-Schreckenberg-Model / Intelligent Driver Model (?)
+
+Dataset ASTRA / RAPP (Gotthard-Strassentunnel)
 
 (Cellular Automata, Agent-Based Model, Continuous Modeling...) (If you are not sure here: 1. Consult your colleagues, 2. ask the teachers, 3. remember that you can change it afterwards)
 
