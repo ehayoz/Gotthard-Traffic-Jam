@@ -36,7 +36,9 @@ http://www.vi-mediathek.de/sek_2/Verkehrsfluss_geschw/Verkehrsfluss.htm
 ## Research Methods
 
 Nagel-Schreckenberg-Model / Intelligent Driver Model (?)
+
 Dataset ASTRA / RAPP (Gotthard-Strassentunnel)
+
 (Cellular Automata, Agent-Based Model, Continuous Modeling...) (If you are not sure here: 1. Consult your colleagues, 2. ask the teachers, 3. remember that you can change it afterwards)
 
 
