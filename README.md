@@ -12,6 +12,7 @@ Traffic is something every one of us faces in daily life. We want to model the t
 
 Simulate 2-to-1-lane reduction (situation at "Gotthard-Strassentunnel Nord") and implement:
 Nagel-Schreckenberg-Model / Intelligent Driver Model (?)
+Using Dataset ASTRA / RAPP (Gotthard-Strassentunnel)
 
 
 ## Fundamental Questions
