@@ -6,7 +6,7 @@
 
 ## General Introduction
 
-Traffic is something every one of us faces in daily life. We want to model the traffic situation in front of the Gotthard-Strassentunnel at Göschnenen/UR. A further goal would be to optimize the current situation.
+Traffic is something every one of us faces in daily life. We want to model the traffic situation in front of the "Gotthard-Strassentunnel Nord" at Göschenenen/UR. A further goal would be to optimize the current situation.
 
 ## The Model
 
