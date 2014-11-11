@@ -1,3 +1,3 @@
 # Code Folder 
 
-Your code goes here. You could also replace the content of this file with something more meaningful
+Type NaSch_cars(<moveProb>, <inFlow>) to start the animation in Matlab. The file draw_car.m is used by NaSch_cars!
