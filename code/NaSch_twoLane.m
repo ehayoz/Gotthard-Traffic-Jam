@@ -74,11 +74,14 @@ for t = 1:nIter
         end
     end
     
-    % update position X(1) (inflow)
-    for row = 1:2
-        if rand < inFlow
-           X(row,1) = vmax;
-        end
+    % update position X(1,1) left lane (inflow left)
+    % reduce inflow value for left lane
+    if rand < 0.8*inFlow
+       X(1,1) = vmax;
+    end
+    % update position X(2,1) right lane (inflow right)
+    if rand < inFlow
+       X(2,1) = vmax;
     end
     
     % update statistics
