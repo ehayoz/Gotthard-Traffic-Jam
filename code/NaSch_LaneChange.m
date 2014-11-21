@@ -12,12 +12,12 @@ function [density, flow] = NaSch_LaneChange(moveProb, inFlow, laneChange, laneRe
 
 % set parameter values
 cC = N-30;      % "change cell", where cars have to change the lane
-nIter = 250;    % number of iterations
+nIter = 1000;   % number of iterations
 vmax = 5;       % maximal velocity of the cars
-L = 30;         % length of lane where cars can change (in front of cC)
+L = 10;         % length of lane where cars can change (in front of cC)
 vmax_L = 2;     % maximal velocity in cL
-a = 0.2;        % min probabilty that car changes lane at cC - L
-b = 1;          % max probability that car changes lane at cC
+a = 0.4;        % min probabilty that car changes lane at cC - L
+b = 0.8;          % max probability that car changes lane at cC
 
 % use quadratic increments for the probabilty between a and b (p = k*x^2+d) 
 k = (a - b)/(L*L-2*cC*L);           % for x=cC-L is p = a
@@ -28,7 +28,6 @@ d = b - cC*cC*(a - b)/(L*L-2*cC*L); % for x=cC   is p = b
 % represents velocity, cars start with v=2)
 X = 3*(rand(2,N) < inFlow) - 1;     
 X(1,cC+1:N) = -ones(1,N-cC);        % no cars after lane reduction
-
 % set statistical variables
 
 vAverage = 0;
@@ -50,41 +49,42 @@ end
 %% main loop, iterating the time variable, t
 for t = 1:nIter
     
-    % cars change lane (left to right) with given probability laneChange
-    for i = 1:cC-2
+    % cars change lane with given probability laneChange
+    for i = 1:cC-L
+        % left to right --> probabilty laneChange
         if X(1,i) ~= -1  &&  X(2,i) == -1  &&  rand < laneChange
            X(2,i) = X(1,i);
            X(1,i) = -1;
         end
+        % right to left --> probabilty 0.9*laneChange
         if X(2,i) ~= -1  &&  X(1,i) == -1  &&  rand < 0.9*laneChange
            X(1,i) = X(2,i);
            X(2,i) = -1;
         end
     end
-    
- 
-    
+        
     % acceleration (NaSch -- RULE 1) ================
     for i = 1:2*N
         if X(i) ~= -1  &&  X(i) < vmax
            X(i) = X(i) + 1;
         end
     end
-
+    
     % cars have to change lane due to lane reduction
     for i = cC-L:cC
         
         % reduce velocity of left lane
-        if X(1,i) > vmax_L - 1
-           X(1,i) = vmax_L - 1;
+        if X(1,i) > vmax_L
+           X(1,i) = vmax_L;
         end
-        
-        
+           
         if X(1,i) ~= -1 % change lane if possible
-           if X(2,i) == -1 && rand < (k*i*i + d)*laneReduction
+           if i == cC  &&  X(2,i) == -1
+              X(2,i) = X(1,i) + 2;
+              X(1,i) = -1;  
+           elseif X(2,i) == -1 && rand < (k*i*i + d)*laneReduction
               X(2,i) = X(1,i) + 2; % +2 accelerate
-              X(1,i) = -1;
-            
+              X(1,i) = -1;          
            elseif X(1,i)+i > cC % avoid overrunning changeCell
               X(1,i) = cC-i;
            end
@@ -158,21 +158,23 @@ for t = 1:nIter
     
     % animate (this code + draw_car.m is from class)
     clf; hold on;
-    plot(0:cC+1, 0.5*ones(1,cC+2), 'Color', [.75 .75 .75], 'LineWidth', 12)
-    plot(0:N+1, -0.5*ones(1,N+2), 'Color', [.75 .75 .75], 'LineWidth', 12)
-    xlim([0 N+1])
-    ylim([-N/4 N/4])
+    xlim([N-100 N+1])
+    ylim([-20 20])
+    plot(N-100:cC+1, 0.5*ones(1,length(N-100:cC+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
+    plot(N-100:N+1, -0.5*ones(1,length(N-100:N+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
+    plot(N-100:cC+1, 0*(N-100:cC+1), '--', 'Color', [.95 .95 .95], 'LineWidth', .8)
     title([ 'Nagel-Schreckenberg Modell   --    Iterationsschritt ' num2str(t)])
     for row = 1:2
-        for i=1:N
+        for i=N-100:N
             if X(row,i) ~= -1
-               draw_car(i, (1.5-row)*0.9, 0.8, 0.2);
+               draw_car(i, 1.2*(1.5-row), 0.8, 0.2);
             end
         end
     end
     
-    pause(.05)
-    
+    if t > 500
+       pause(.05)
+    end
 end
 %% END OF MAIN LOOP
 
