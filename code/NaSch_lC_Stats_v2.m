@@ -1,4 +1,4 @@
-function [density, flow] = NaSch_lC_Stats(moveProb, inFlow, laneChange, N)
+function congLength = NaSch_lC_Stats_v2(moveProb, inFlow, laneChange, N, isAnimated)
 
 % INPUT: 
 %   moveProb: the probability for a car to move forwards, 0..1
@@ -14,10 +14,10 @@ function [density, flow] = NaSch_lC_Stats(moveProb, inFlow, laneChange, N)
 
 % set parameter values
 cC = N-30;      % "change cell", where cars have to change the lane
-nIter = 1000;   % number of iterations
+nIter = 9000;   % number of iterations
 vmax = 5;       % maximal velocity of the cars
 L = 10;         % length of lane where cars can change (in front of cC)
-vmax_L = 2;     % maximal velocity in cL
+vmax_L = 2;     % maximal velocity in L
 a = 0.4;        % min probabilty that car changes lane at cC - L
 b = 0.8;        % max probability that car changes lane at cC
 
@@ -27,28 +27,26 @@ d = b - cC*cC*(a - b)/(L*L-2*cC*L); % for x=cC   is p = b
 
 
 % define road (-1 = no car; 0..vmax = car, value  
-% represents velocity, cars start with v=2)
-X = 3*(rand(2,N) < inFlow) - 1;     
-X(1,cC+1:N) = -ones(1,N-cC);        % no cars after lane reduction
+% represents velocity)
+%X = 4*(rand(2,N) < inFlow) - 1;     
+%X(1,cC+1:N) = -ones(1,N-cC);        % no cars after lane reduction
+X = -ones(2,N);
 
 % set statistical variables
-vAverage = 0;
 vSum = 0;       % sum of speeds
-nCars = 0;
-emptyCount = 0;
-first = 1;
-lT = .8;        % lower threshold for congLength fluctuation
-uT = 1.2;       % upper threshold for congLength fluctuation
-cT = 100;       % threshold for interpolating congLength
-congStart = 0;
-congEnd = 0;
-congLength = 0;
-congLength1 = 0;
-congLength2 = 0;
-congLengthPrev1 = cT; % "default" congLengthPrev
-lengthAverage = 0;
-movedCars = 0;
-density = 0;
+nCars = 0;      % #cars on road
+
+
+% define variables in a block (2 x bL)
+bL = 10;        % block length:   length of a block
+bD = 0;         % block density:  density of cars in a block, 0..1
+bV = 0;         % block velocity: average velocity in a block, 0..vmax
+bC = 0;         % block counter:  counts number of blocks (congestion), 0..(N % bL)
+bE = 0;         % empty counter:  counts number of blocks (no congestion), 0..2
+
+% congestion length in each round
+congLength = zeros(1, nIter);
+congLength_prev = 10;
 
 % COUNTER
 inflowCounter = 0;
@@ -97,7 +95,7 @@ for t = 1:nIter
            if i == cC  &&  X(2,i) == -1
               X(2,i) = X(1,i) + 2;      % accelerate after lane change
               X(1,i) = -1;  
-           elseif X(2,i) == -1 && rand < (k*i*i + d)*b %  <================================================INPUT laneReduction durch b ersetzt!!! (weil doppelt)
+           elseif X(2,i) == -1 && rand < (k*i*i + d)
               X(2,i) = X(1,i) + 2; % +2 accelerate
               X(1,i) = -1;          
            elseif X(1,i)+i > cC % avoid overrunning changeCell
@@ -107,7 +105,7 @@ for t = 1:nIter
     end
     
     % slowing down (NaSch -- RULE 2) ================
-    for row = 1:2                               % must come after laneReduction
+    for row = 1:2
         for i = 1:N
             if X(row,i) ~= -1
                for j = 1:X(row,i)
@@ -147,9 +145,6 @@ for t = 1:nIter
             if Xold(row,i) > 0 && i + Xold(row,i) <= N
                 X(row,i+X(row,i)) = X(row,i);
                 X(row,i) = -1;
-                % keep track of how many cars are moved forwards.
-                % Needed for calculating the flow later on.
-                movedCars = movedCars + 1;
             elseif Xold(row,i) > 0 && i + Xold(row,i) > N
                 X(row,i) = -1;
             end
@@ -157,7 +152,7 @@ for t = 1:nIter
     end
     
     % update position X(1,1) left lane (inflow left)
-    % reduce inflow value for left lane
+    % reduce inflow value for0.1 left lane
     if rand < 0.9*inFlow && X(1,1) == -1
         X(1,1) = vmax;
         inflowCounter = inflowCounter + 1;
@@ -179,74 +174,82 @@ for t = 1:nIter
             end
         end
     end
+    
     vAverage = vSum / nCars;
+    % reset vSum for next round
     vSum = 0;
+    nCars = 0;
     
-    % density
-    density = nCars / (2*N - (N - cC));
-    nCars = 0;                                      % reset statistics
-    
-    % length of congestion
-    % traffic congestion: during 60s and more less than 10km/h (v <= 3)     <======================================================== Zeit Bedingung?
-    % stop-and-go traffic: during 60s and more 10-30km/h
-    for row = 1:2
-        for i = cC:-1:1                             % combustion can only begin at cC (traffic in tunnel is fluent)
-            if X(row,i) == -1
-                emptyCount = emptyCount+1;          % count empty cells between cars
-            else
-                emptyCount = 0;
-            end
-            
-            if 0 <= X(row,i) <= 2 && first == 1     % detect potential congestion
-                congStart = i;
-                first = 0;
-                emptyCount = 0;
-            elseif X(row,i) >= 4 || emptyCount >= 7 % no congestion anymore
-                first = 1;
-                congEnd = i;
-                congLength = congStart - congEnd;
-                break;                              % measure only congLength directly in front of Gotthard
+    % congestion length
+    for i = cC:-bL:1
+        % compute density of cars and average velocity in a block
+        for j = 2*i:-1:2*(i-bL)
+            if X(i) ~= -1
+               bV = bV + X(i);
+               bD = bD + 1;
             end
         end
+        bV = bV / bD;
+        bD = bD / (2*bL);
         
-        if row == 1 && congLength > cT                                 % distinguish both rows
-            if lT*congLengthPrev1 < congLength < uT*congLengthPrev1    % prevent extreme fluctuation <============================ Bedingung abchecken + 0und1en entfernen!!!
-                congLength1 = congLength;
-                0
-            else
-                congLength1 = congLengthPrev1;                         % too large fluctuation
-                1
-            end
-            congLengthPrev1 = congLength1;
-            
-        elseif row == 2
-            congLength2 = congLength;
+        % test if block satisfy conditions for a congenstion
+        if bV < 1  &&  bD > .7
+           bC = bC + 1;
+        
+           bE = 0;
+        elseif bE >= 1
+           break
+        elseif i == cC || i == cC - bL
+           bE = bE + 1;
+           bC = 0;
+        else
+           bE = bE + 1;
+           bC = bC + 1;
         end
-    end
-    % <======================================== OUTPUT nicht geändert!!!
-    % average length
-    lengthAverage = ((nIter - 1)*lengthAverage + .5*(congLength1 + congLength2))/nIter;     % <======================================= lengthAverage nicht so aussagekräftig
 
-    %% animation
-    % animate (this code + draw_car.m is from class)
-    clf; hold on;
-    xlim([N-100 N+1])
-    ylim([-20 20])
-    plot(N-100:cC+1, 0.5*ones(1,length(N-100:cC+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
-    plot(N-100:N+1, -0.5*ones(1,length(N-100:N+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
-    plot(N-100:cC+1, 0*(N-100:cC+1), '--', 'Color', [.95 .95 .95], 'LineWidth', .8)
-    title([ 'Nagel-Schreckenberg Modell   --    Iterationsschritt: ' num2str(t), '  Length1: ' num2str(congLength1), '  Length2: ' num2str(congLength2), '  Average Length: ' num2str(lengthAverage), '  Average Speed: ' num2str(vAverage), '  Density: ' num2str(density)])
+        % reset variables
+        bV = 0;
+        bD = 0;
+    end
+    congLength_curr = bC * bL;
     
-    for row = 1:2
-        for i = N-100:N
-            if X(row,i) ~= -1
-               draw_car(i, 1.2*(1.5-row), 0.8, 0.2);
+    if congLength_prev < congLength_curr
+       congLength(1,t) = congLength_prev + bL;
+    elseif congLength_prev == congLength_curr
+       congLength(1,t) = congLength_curr;
+    else
+       congLength(1,t) = congLength_prev - bL;
+    end 
+    congLength_prev = congLength(1,t);
+    bC = 0;
+    bE = 0;
+    
+    %% animation
+    if isAnimated
+        clf; hold on;
+        xlim([N-100 N+1])
+        ylim([-20 20])
+        plot(N-100:cC+1, 0.5*ones(1,length(N-100:cC+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
+        plot(N-100:N+1, -0.5*ones(1,length(N-100:N+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
+        plot(N-100:cC+1, 0*(N-100:cC+1), '--', 'Color', [.95 .95 .95], 'LineWidth', .8)
+        title([ 'Iterationsschritt: ' num2str(t), '  congestion: ' num2str(congLength(1,t)), '  Average Speed: ' num2str(vAverage)])
+
+        for row = 1:2
+            for i = N-100:N
+                if X(row,i) ~= -1
+                   draw_car(i, 1.2*(1.5-row), 0.8, 0.2);
+                end
             end
         end
+
+        pause(0.01)
     end
     
-    if t > 500
-       pause(.05)
+    if t > 6500
+       inFlow = 0.15;
+    end
+    if t > 8000
+       inFlow = 0;
     end
 end
 %% END OF MAIN LOOP
@@ -260,11 +263,10 @@ end
  
 % check if inflow is equal to outflow
 if outflowCounter == inflowCounter
-   title([ 'Nagel-Schreckenberg Modell   --    Iterationsschritt ' num2str(t) '   --    inflow = outflow = ' num2str(outflowCounter)])
+   disp num2str(outflowCounter)
 else
-   title([ 'Nagel-Schreckenberg Modell   --    Iterationsschritt ' num2str(t) '   --    error occured: inflow and outflow are different!!!'])
+   disp 'error occured: inflow and outflow are different!!!'
 end
-
-% rescale statistical vaiables before returing them
-density = density/nIter;
-flow = movedCars/(2*N*nIter);
+figure() 
+bar(congLength)
+xlim([0 nIter])
