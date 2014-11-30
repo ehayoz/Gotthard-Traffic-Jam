@@ -1,63 +1,54 @@
-function congLength = NaSch_lC_Stats_v2(moveProb, inFlow, laneChange, N, isAnimated)
+function congLength = NaSch_lC_Stats_v3(moveProb, smallChanges, isAnimated)
 
 % INPUT: 
 %   moveProb: the probability for a car to move forwards, 0..1
-%   inFlow: The inflow volume to the road, 0..1
-%   laneChange: the probability for a car to change the lane, 0..1
-%   laneReduction: the probabilty for a car to change the lane at cC
-%   N: road length (> 100)
+%   smallChanges: do small changes for congestion measuring, 0..1, 0 is off
+%   isAnimated: start program with animation, boolean 1=true 0=false
 % OUTPUT:
-%   density: the average vehicle density, 0..1
-%   flow: the average flow of cars, 0..1
+%   congLength: array with congestion length
 % EXAMPLE:
-%   NaSch_lC_Stats(.5,.4,.1,1000)
+%   NaSch_lC_Stats_v3(.6,0,0)
 
 % set parameter values
+N = 4000;       % length of street, 235 = 1km
+conv = 235;     % "convert", #cells that matches 1km
 cC = N-30;      % "change cell", where cars have to change the lane
-nIter = 9000;   % number of iterations
+nIter = 86400;  % number of iterations, one iterations is equal to 1s
+inFlow = .1;    % default inFlow
 vmax = 5;       % maximal velocity of the cars
-L = 10;         % length of lane where cars can change (in front of cC)
+L = 15;         % length of lane where cars can change (in front of cC)
 vmax_L = 2;     % maximal velocity in L
-a = 0.4;        % min probabilty that car changes lane at cC - L
-b = 0.8;        % max probability that car changes lane at cC
+a = 0.3;        % min probabilty that car changes lane at cC - L
+b = 0.7;        % max probability that car changes lane at cC
+laneChange = .1;% the probability for a car to change the lane, 0..1
 
 % use quadratic increments for the probabilty between a and b (p = k*x^2+d) 
 k = (a - b)/(L*L-2*cC*L);           % for x=cC-L is p = a
 d = b - cC*cC*(a - b)/(L*L-2*cC*L); % for x=cC   is p = b
 
-
-% define road (-1 = no car; 0..vmax = car, value  
-% represents velocity)
-%X = 4*(rand(2,N) < inFlow) - 1;     
-%X(1,cC+1:N) = -ones(1,N-cC);        % no cars after lane reduction
-X = -ones(2,N);
-
 % set statistical variables
 vSum = 0;       % sum of speeds
 nCars = 0;      % #cars on road
 
-
 % define variables in a block (2 x bL)
-bL = 10;        % block length:   length of a block
+bL = 100;       % block length:   length of a block
 bD = 0;         % block density:  density of cars in a block, 0..1
 bV = 0;         % block velocity: average velocity in a block, 0..vmax
 bC = 0;         % block counter:  counts number of blocks (congestion), 0..(N % bL)
 bE = 0;         % empty counter:  counts number of blocks (no congestion), 0..2
 
 % congestion length in each round
-congLength = zeros(1, nIter);
-congLength_prev = 10;
+congLength = zeros(1, nIter/36); % 2400s = 40min are 1/36 of 1 day
+congLength_prev = 0;
+congPlot = zeros(1,36); % final values for plotting
+currentCongestion = 0;
 
 % COUNTER
 inflowCounter = 0;
 outflowCounter = 0;
 
-% count cars on lanes
-for i = 1:2*N
-    if X(i) ~= -1
-       inflowCounter = inflowCounter + 1;
-    end
-end
+% define road (-1 = no car; 0..vmax = car, value represents velocity)
+X = -ones(2,N);
 
 %% main loop, iterating the time variable, t
 for t = 1:nIter
@@ -193,14 +184,14 @@ for t = 1:nIter
         bD = bD / (2*bL);
         
         % test if block satisfy conditions for a congenstion
-        if bV < 1  &&  bD > .7
+        % count only connected congestion, gaps are allowed.
+        gap = 2;
+        if bV < 1.1  &&  bD > .7
            bC = bC + 1;
            bE = 0;
-        elseif bE >= 1
+        elseif bE >= gap
+           bC = bC - gap;
            break
-        elseif i == cC
-           bE = bE + 1;
-           bC = 0;
         else
            bE = bE + 1;
            bC = bC + 1;
@@ -209,16 +200,26 @@ for t = 1:nIter
         bV = 0;
         bD = 0;
     end
-    congLength_curr = bC * bL;
+    congLength(1,1+mod(t-1,2400)) = bC * bL;
     
-    if congLength_prev < congLength_curr
-       congLength(1,t) = congLength_prev + .3;
-    elseif congLength_prev == congLength_curr
-       congLength(1,t) = congLength_curr;
-    else
-       congLength(1,t) = congLength_prev - .3;
-    end 
-    congLength_prev = congLength(1,t);
+     % allow only small changes! 
+     if smallChanges 
+        if congLength(1, 1+mod(t-1,2400)) > congLength_prev
+           congLength(1, 1+mod(t-1,2400)) = congLength_prev + smallChanges;
+        elseif congLength(1, 1+mod(t-1,2400)) < congLength_prev
+           congLength(1, 1+mod(t-1,2400)) = congLength_prev - smallChanges;
+        else
+           congLength(1, 1+mod(t-1,2400)) = congLength_prev;
+        end
+        congLength_prev = congLength(1, 1+mod(t-1,2400));
+    end
+    
+    % mesure congestion for 40min, store average in congPlot
+    if mod(t,2400) == 0 
+       congPlot(1,t/2400) = sum(congLength/conv)/2400;
+       currentCongestion = congPlot(1,t/2400);
+    end
+    % reset counters
     bC = 0;
     bE = 0;
     
@@ -230,7 +231,7 @@ for t = 1:nIter
         plot(N-100:cC+1, 0.5*ones(1,length(N-100:cC+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
         plot(N-100:N+1, -0.5*ones(1,length(N-100:N+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
         plot(N-100:cC+1, 0*(N-100:cC+1), '--', 'Color', [.95 .95 .95], 'LineWidth', .8)
-        title([ 'Iterationsschritt: ' num2str(t), '  congestion: ' num2str(congLength(1,t)), '  Average Speed: ' num2str(vAverage)])
+        title([ 'Iterationsschritt: ' num2str(t), '  congestion: ' num2str(currentCongestion), '  Average Speed: ' num2str(vAverage)])
 
         for row = 1:2
             for i = N-100:N
@@ -242,12 +243,38 @@ for t = 1:nIter
 
         pause(0.01)
     end
+  
     
-    if t > 6500
-       inFlow = 0.15;
+% inFlow
+    if t > 4*3600
+       inFlow = 0.2;
     end
-    if t > 8000
-       inFlow = 0;
+    if t > 5*3600
+       inFlow = 0.4;
+    end
+    if t > 6*3600
+        inFlow = 0.6;
+    end
+    if t > 8*3600
+       inFlow = .8;
+    end
+    if t > 9*3600
+       inFlow = 1;
+    end
+    if t > 10*3600
+       inFlow = 0.55;
+    end
+    if t > 12*3600
+       inFlow = .4;
+    end
+    if t > 13*3600  
+       inFlow = 0.3;
+    end
+    if t > 17* 3600
+       inFlow = .1;
+    end
+    if t > 19*3600
+       inFlow = 0.05;
     end
 end
 %% END OF MAIN LOOP
@@ -265,6 +292,11 @@ if outflowCounter == inflowCounter
 else
    disp 'error occured: inflow and outflow are different!!!'
 end
-figure() 
-bar(congLength)
-xlim([0 nIter])
+
+% diagram of congestion
+figure()
+bar(2/3:2/3:24,congPlot)
+title('Congestion')
+xlabel('Anzahl Stunden -- gemessen alle 40min');
+ylabel('Kilometer');
+xlim([0 24]);
