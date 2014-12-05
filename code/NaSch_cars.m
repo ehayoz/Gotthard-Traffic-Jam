@@ -11,7 +11,7 @@ function [density, flow] = NaSch_cars(moveProb, inFlow)
 
 % set parameter values
 N = 100;           % road length
-nIter = 1000;      % number of iterations
+nIter = 200;      % number of iterations
 vmax = 5;          % maximal velocity of the cars
 
 % define road (1 = car, 0 = no car)

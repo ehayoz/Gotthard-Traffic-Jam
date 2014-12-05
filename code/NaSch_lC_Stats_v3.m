@@ -10,7 +10,7 @@ function congLength = NaSch_lC_Stats_v3(moveProb, smallChanges, isAnimated)
 %   NaSch_lC_Stats_v3(.6,0,0)
 
 % set parameter values
-N = 4000;       % length of street, 235 = 1km
+N = 4030;       % length of street, 235 = 1km
 conv = 235;     % "convert", #cells that matches 1km
 cC = N-30;      % "change cell", where cars have to change the lane
 nIter = 86400;  % number of iterations, one iterations is equal to 1s
@@ -38,7 +38,7 @@ bC = 0;         % block counter:  counts number of blocks (congestion), 0..(N % 
 bE = 0;         % empty counter:  counts number of blocks (no congestion), 0..2
 
 % congestion length in each round
-congLength = zeros(1, nIter/36); % 2400s = 40min are 1/36 of 1 day
+congLength = zeros(1, nIter / 36); % 2400s = 40min are 1/36 of 1 day
 congLength_prev = 0;
 congPlot = zeros(1,36); % final values for plotting
 currentCongestion = 0;
@@ -174,11 +174,14 @@ for t = 1:nIter
     % congestion length
     for i = cC:-bL:1
         % compute density of cars and average velocity in a block
-        for j = 2*i:-1:2*(i-bL)
-            if X(i) ~= -1
-               bV = bV + X(i);
+        for j = 2*i:-1:2*(i-bL)+1
+            if X(j) ~= -1
+               bV = bV + X(j);
                bD = bD + 1;
             end
+        end
+        if bD == 0
+           bD = 1;
         end
         bV = bV / bD;
         bD = bD / (2*bL);
@@ -186,7 +189,7 @@ for t = 1:nIter
         % test if block satisfy conditions for a congenstion
         % count only connected congestion, gaps are allowed.
         gap = 2;
-        if bV < 1.1  &&  bD > .7
+        if bV < 1.4  &&  bD > .55
            bC = bC + 1;
            bE = 0;
         elseif bE >= gap
