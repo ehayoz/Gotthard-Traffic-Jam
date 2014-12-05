@@ -54,7 +54,7 @@ end
 % diagram of congestion
 figure()
 hold on;
-bar(X/3600,Y, .01, 'EdgeColor',[.8,.85,.9])
+bar(X/3600,Y, .01, 'EdgeColor',[.8,.85,.9], 'FaceColor',[.8,.85,.9])
 bar(seconds/3600,congestion, 'k')
 title('Congestion')
 if mod(dataset,2)
