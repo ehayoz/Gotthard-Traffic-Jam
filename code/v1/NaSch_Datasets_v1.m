@@ -1,4 +1,9 @@
-function [ error_tot ] = NaSch_Datasets_v1(dataset, moveProb, smallChanges, redLight_act, isAnimated)
+function [ error_tot ] = NaSch_Datasets_v1(dataset, moveProb, smallChanges, redLight_act, isAnimated, moveCorr)
+
+% values
+% NaSch_Datasets_v1(1,.525,0,0,0,.055): perfectly symmetric
+% NaSch_Datasets_v1(2,.525,0,0,0,.05):  less error
+
 %% parameters
 % INPUT:
 %   dataset: choose one of 4 datasets, {1,2,3,4} (don't use 3,4:evaluation)
@@ -63,6 +68,9 @@ cong_r_prev = 0;                     % real cong length
 u = 1;
 z = 0;
 INFLOWMATRIX = zeros(1,nIter);
+first = 1;                           % congestion optimization
+opt_act = 0;
+congStart = 0;
 
 % COUNTER
 inflowCounter = 0;
@@ -331,9 +339,19 @@ for t = 1:nIter
         congLength_prev = congLength(1,k);
     end
     
-    % mesure congestion for 40min, store mean in congPlot
+    % measure congestion for 40min, store mean in congPlot
     if mod(t,2400) == 0
-        congPlot(1,t/2400) = sum(congLength/conv) / 2400;
+        %congPlot(1,t/2400) = sum(congLength/conv) / 2400;
+        congPlot(1,t/2400) = round((sum(congLength/conv) / 2400)/.5)*.5;    % round half up
+        
+        % "traffic optimization" (faster congestion growth at beginning
+        if congPlot(1,t/2400) > 0 && first == 1
+            moveProb = moveProb - moveCorr;       % slow down moveProb when congestion begins
+            congStart = t;
+            first = 0;
+            opt_act = 1;
+        end
+        
         % enable redlight, if congestion longer than 2km
         if congPlot(1,t/2400) > 2 && redLight_act
             redLight = 1;
@@ -341,6 +359,13 @@ for t = 1:nIter
             redLight = 0;
         end
         currentCongestion = congPlot(1,t/2400);
+    end
+    
+    % reset moveProb after x*3600 seconds
+    if t >= congStart + 1.8*3600 && opt_act
+        moveProb = moveProb + moveCorr;
+        first = 0;
+        opt_act = 0;
     end
     
     % reset counters
@@ -430,7 +455,7 @@ hold off;
 error_rel = zeros(1,length(congPlot));
 error_abs = zeros(1,length(congPlot));
 
-for i=0:2400:nIter               % check every 2400s if real congestion data is available
+for i=0:2400:nIter                % check every 2400s if real congestion data is available
     z = z+1;
     
     % accessing real and simulation congestion data
@@ -449,7 +474,7 @@ for i=0:2400:nIter               % check every 2400s if real congestion data is 
         error_rel(1,z) = 0;
     elseif congPlot(1,u) > Y(1,w)
         error_rel(1,z) = congPlot(1,u) / Y(1,w) - 1;
-    else                         % if congPlot(1,u) < Y(1,w)
+    else                          % if congPlot(1,u) < Y(1,w)
         error_rel(1,z) = -(Y(1,w) / congPlot(1,u) - 1);
     end
     
@@ -465,6 +490,19 @@ figure()
 hold on;
 title(' Absolute Error ')
 bar(2/3:2/3:nIter/3600,error_abs,'r')
+
+if mod(dataset,2)
+    xlabel([datestr(data(1,:),'dd.mm.yyyy') ' - ' datestr(data(end,:),'dd.mm.yyyy')]);
+else
+    xlabel(datestr(data(1,:),'dd.mm.yyyy'));
+end
+
+ylabel('Kilometer');
+if mod(dataset,2)
+    xlim([0 48]);
+else
+    xlim([0 24]);
+end
 
 end
 
