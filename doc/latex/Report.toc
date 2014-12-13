@@ -1,0 +1,19 @@
+\contentsline {section}{\numberline {1}Abstract}{5}
+\contentsline {section}{\numberline {2}Individual contributions}{5}
+\contentsline {section}{\numberline {3}Introduction}{5}
+\contentsline {subsection}{\numberline {3.1}Motivation}{5}
+\contentsline {section}{\numberline {4}Description of the Model}{6}
+\contentsline {subsection}{\numberline {4.1}The Nagel-Schreckenberg model}{6}
+\contentsline {subsection}{\numberline {4.2}Example of an iteration}{6}
+\contentsline {subsection}{\numberline {4.3}Situation}{7}
+\contentsline {section}{\numberline {5}Implementation}{8}
+\contentsline {subsection}{\numberline {5.1}Correlation between reality and model}{8}
+\contentsline {subsection}{\numberline {5.2}Inflow}{8}
+\contentsline {subsection}{\numberline {5.3}Average speed}{9}
+\contentsline {subsection}{\numberline {5.4}Lane Change}{9}
+\contentsline {subsection}{\numberline {5.5}Red Light}{9}
+\contentsline {subsection}{\numberline {5.6}Congestion Length}{9}
+\contentsline {subsection}{\numberline {5.7}Processing the datasets delivered by ASTRA}{10}
+\contentsline {section}{\numberline {6}Simulation Results and Discussion}{10}
+\contentsline {section}{\numberline {7}Summary and Outlook}{11}
+\contentsline {section}{\numberline {8}Appendix}{11}

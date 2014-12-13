@@ -1,0 +1,149 @@
+\documentclass[11pt]{article}
+\usepackage{geometry}                
+\geometry{letterpaper}                   
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{sidecap}
+\usepackage[hang]{caption}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{booktabs}
+\usepackage{mcode}
+\usepackage[numbers]{natbib}
+\usepackage{amssymb, amsmath ,empheq}
+\usepackage{lmodern}
+\usepackage[labelfont={bf,small},font={small},aboveskip=1.2em,belowskip=0em]{caption}
+\graphicspath{{figures/}}
+\setlength{\parindent}{0px}
+
+\usepackage{listings}
+\lstset{
+basicstyle=\footnotesize,  
+% keywordstyle=\color{blue},       		
+  title=\lstname,  				
+ numbers=left,                    			
+ breakatwhitespace=false,
+ breaklines=true
+}
+\definecolor{background}{RGB}{245,245,245}
+\definecolor{dunkelblau}{RGB}{77,77,94}
+\definecolor{black}{gray}{0} % 10% gray
+\DeclareCaptionFont{white}{\color{white}}
+\DeclareCaptionFormat{listing}{\colorbox{dunkelblau}{\parbox[b][0.375cm]{\textwidth-2\fboxsep}{\hspace{15pt}#1#2#3}}}
+\captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, belowskip=0pt,aboveskip=0pt, singlelinecheck=false, margin=0pt,  font={bf, footnotesize}}
+
+\begin{document}
+\lstset{
+  numbers=left,                   % where to put the line-numbers
+  numberstyle=\tiny\color{darkgray},  % the style that is used for the line-numbers
+  stepnumber=1,               % Abstand zwischen den Zeilennummern
+  numbersep=10pt,              % Abstand der Nummern zum Text
+  tabsize=2,                  % Groesse von Tabs
+  extendedchars=true,         %
+  breaklines=true,            % Zeilen werden Umgebrochen
+  showspaces=false,           % Leerzeichen anzeigen ?
+  showtabs=false,             % Tabs anzeigen ?
+  xleftmargin=17pt,
+  language=Matlab,
+  framexleftmargin=17pt,
+  framexrightmargin=0pt,
+  framexbottommargin=4pt,
+  backgroundcolor=\color{background},
+  showstringspaces=false,      % Leerzeichen in Strings anzeigen ? 
+  frame=b,
+  basicstyle=\footnotesize\ttfamily
+}
+
+\input{cover}
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Agreement for free-download}
+\bigskip
+
+
+\bigskip
+
+
+\large We hereby agree to make our source code for this project freely available for download from the web pages of the SOMS chair. Furthermore, we assure that all source code is written by ourselves and is not violating any copyright restrictions.
+
+\begin{center}
+
+\bigskip
+
+
+\bigskip
+
+
+\end{center}
+\newpage
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\includegraphics[width=\textwidth]{originality.pdf}
+\newline
+\begin{minipage}{0.33\textwidth}
+%\includegraphics[scale=0.13]{urs.png}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+%\includegraphics[scale=0.13]{nino.png}
+\end{minipage}
+
+\clearpage
+%%%%%%%%%% Table of content %%%%%%%%%%%%%%%%%
+
+\tableofcontents
+
+\newpage
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\section{Abstract}
+
+\input{abstract.tex}
+
+\section{Individual contributions}
+
+
+Nino played the key role in developing our simulation. Patrick was in charge of the data-fetching. Urs was responsible for the visualizations. The analysis was preformed together. 
+
+\section{Introduction}
+
+\input{introduction.tex}
+
+\section{Description of the Model}
+
+\input{model.tex}
+
+
+\section{Implementation}
+
+
+
+\input{implementation.tex}
+
+
+\section{Simulation Results and Discussion}
+
+\input{results.tex}
+
+\section{Summary and Outlook}
+
+\input{summary.tex}
+
+\section{Appendix}
+\input{code.tex}
+
+%\input{bib.tex}
+
+
+
+
+
+\end{document}  
+
+
+
+ 
