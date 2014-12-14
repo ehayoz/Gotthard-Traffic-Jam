@@ -71,6 +71,6 @@ T = zeros(numberMC, numberMP);
 T(Index) = 1;
 [value, location] = max(T(:));
 [R,C] = ind2sub(size(T),location);
-moveProb = mp_start + C * mp_step;
-moveCorr = mc_start + R * mc_step;
+moveProb = mp_start + (C-1) * mp_step;
+moveCorr = mc_start + (R-1) * mc_step;
 end
