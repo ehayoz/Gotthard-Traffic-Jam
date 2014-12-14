@@ -2,7 +2,7 @@
 % http://www.soms.ethz.ch/matlab
 % Author: Stefano Balietti and Karsten Donnay, 2012
 
-function draw_car(x0, y0, w, h);
+function draw_car(x0, y0, w, h)
 % This function is drawing a car
 % INPUT: 
 %   x0, y0: Central point of the car

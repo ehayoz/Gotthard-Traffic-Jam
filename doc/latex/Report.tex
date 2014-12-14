@@ -31,7 +31,7 @@ basicstyle=\footnotesize,
 \DeclareCaptionFont{white}{\color{white}}
 \DeclareCaptionFormat{listing}{\colorbox{dunkelblau}{\parbox[b][0.375cm]{\textwidth-2\fboxsep}{\hspace{15pt}#1#2#3}}}
 \captionsetup[lstlisting]{format=listing,labelfont=white,textfont=white, belowskip=0pt,aboveskip=0pt, singlelinecheck=false, margin=0pt,  font={bf, footnotesize}}
-
+\usepackage[percent]{overpic}
 \begin{document}
 \lstset{
   numbers=left,                   % where to put the line-numbers
@@ -73,22 +73,22 @@ basicstyle=\footnotesize,
 
 \bigskip
 
-
 \bigskip
-
-
+\begin{minipage}[t]{.4\textwidth}\centering
+Eric Hayoz\\ \vspace{.1cm}
+\includegraphics[height=1cm]{ehayoz.png}
+\end{minipage}
+\begin{minipage}[t]{.4\textwidth}\centering
+Janick Zwyssig\\ \vspace{.1cm}
+\includegraphics[height=1cm]{jzwyssig.png}
+\end{minipage}
 \end{center}
 \newpage
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\includegraphics[width=\textwidth]{originality.pdf}
-\newline
-\begin{minipage}{0.33\textwidth}
-%\includegraphics[scale=0.13]{urs.png}
-\end{minipage}
-\begin{minipage}{0.33\textwidth}
-%\includegraphics[scale=0.13]{nino.png}
-\end{minipage}
-
+\begin{overpic}[width=\textwidth, clip=true, trim=1cm 3.9cm 1cm 1cm]{originality.pdf}
+\put(34,7){\includegraphics[height=.2cm]{ehayoz.png}}
+\put(66,7){\includegraphics[height=1.02cm, angle=180, origin=c]{jzwyssig.png}}
+\end{overpic}
 \clearpage
 %%%%%%%%%% Table of content %%%%%%%%%%%%%%%%%
 
@@ -106,8 +106,25 @@ basicstyle=\footnotesize,
 
 \section{Individual contributions}
 
+We devided the code work as follows (but at the end we both were involved in every part):
 
-Nino played the key role in developing our simulation. Patrick was in charge of the data-fetching. Urs was responsible for the visualizations. The analysis was preformed together. 
+Eric Hayoz:
+\begin{itemize}
+\item Implementation NaSch-Modell for 2 cars 
+\item Handling Dataset with inFlow and Speed 
+\item Correlation Reality - Model
+\item Creating optiFinder 
+\end{itemize}
+
+Janick Zwyssig:
+\begin{itemize}
+\item Implementation NaSch-Modell for n cars
+\item Implementation laneChange 
+\item Implementation redLight 
+\item Layout Street with Cars 
+\end{itemize}
+
+The written part was performed together.
 
 \section{Introduction}
 
