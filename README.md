@@ -37,9 +37,12 @@ We believe that we can predict a traffic congestion and its length with an error
 
 ## References 
 
-(Add the bibliographic references you intend to use)
-(Explain possible extension to the above models)
-(Code / Projects Reports of the previous year)
+[1] Andreas Schadschneider. Traﬃc ﬂow modelling. http://www.thp.uni-koeln. de/˜as/Mypage/traffic.html. April 2000 
+
+[2] Torsten Held, Stefan Bittihn. Cellular automata for traﬃc simulation – NagelSchreckenberg model. March 2011 
+
+[3] K. Nagel and M. Schreckenberg. A cellular automaton model for freeway traﬃc. 1992
+
 
 
 ## Research Methods
