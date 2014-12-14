@@ -1,4 +1,4 @@
-function [error] = NaSch_Datasets_v1(dataset, moveProb, isAnimated, moveCorr)
+function [precision, prediction] = NaSch_Datasets_v1(dataset, moveProb, isAnimated, moveCorr)
 
 % values
 % NaSch_Datasets_v1(1,.525,0,0,0,.055): perfectly symmetric
@@ -214,7 +214,7 @@ for t = 1:nIter
             rateS_m = 2;
         end
     end
-INFLOWMATRIX(1,t) = rateI;
+
     rateS = ceil(rateS_m) - (rand < (ceil(rateS_m)-rateS_m));
     
     % update position X(1,1) left lane (inflow left)
@@ -376,16 +376,29 @@ grid on;
 hold off;
 
 %% error evaluation
-area_dataset = xval * sum(Y_dataset);
+area_dataset = sum(Y_dataset);
 error = 0;
 for i = 1:length(congPlot)
-    error = error + xval*abs(congPlot(i)-Y_dataset(i));
+    error = error + abs(congPlot(i)-Y_dataset(i));
 end
 error =  error / area_dataset;
-precision = 1 - error
+if error > 1
+   error = 1;
+end
+precision = 1 - error;
 
-figure()
-bar(1:nIter, INFLOWMATRIX)
+intersect = 0;
+soloCounter = 0;
+for i = 1:length(congPlot)
+    if Y_dataset(i) > 0
+        soloCounter = soloCounter + 1;
+        if congPlot(i) > 0
+        intersect = intersect + 1;
+        end
+    end
+end
+prediction = intersect / soloCounter;
+    
 end
 
 %% datasets

@@ -1,89 +1,65 @@
 function [ ] = optiFinder(dataset)
-
-%% moveCorr
-mc_start = .033;
-mc_stop = .099;
-mc_step = .033;
-
 % Optimum Finder for:
 %   - moveProb
 %   - moveCorr
 
-rounds = 4;             % how many times it should use same inputs (=> stable data)
+%% moveCorr
+mc_start = .033;
+mc_stop = .033;
+mc_step = .033;
 
 %% moveProb
-mp_start = .3;          % moveProb
-mp_stop = .6;
-mp_step = .025;
+mp_start = .45;
+mp_stop = .55;
+mp_step = .05;
 
 isAnimated = 0;
-
-error_abs_M = zeros(1,round((mp_stop-mp_start)/mp_step+1));
-error_mC = zeros(1,round((mc_stop-mc_start)/mc_step+1)*round((mp_stop-mp_start)/mp_step+1));
-error_abs_sum = 0;
-u = 0;
+rounds = 1;
+evaluation = zeros(2,round((mc_stop-mc_start)/mc_step+1)*round((mp_stop-mp_start)/mp_step+1));
+precision_tot = 0;
+prediction_tot = 0;
 v = 0;
 
 set(0,'DefaultFigureVisible','off') % suppress bar graph output
 for moveProb = mp_start:mp_step:mp_stop
-    %    u = u+1;  
  for moveCorr = mc_start:mc_step:mc_stop
      v = v+1;
    for j = 1:rounds
-       error_abs = NaSch_Datasets_v1(dataset, moveProb, isAnimated, moveCorr);
-       error_abs_sum = error_abs_sum + error_abs;
+       [precision,prediction]  = NaSch_Datasets_v1(dataset, moveProb, isAnimated, moveCorr);
+       precision_tot = precision_tot + precision;
+       prediction_tot = prediction_tot + prediction;   
    end
-   error_mC(1,v) = error_abs_sum/rounds;   % calculate mean of absolute error
+   evaluation(1,v) = precision_tot/rounds;
+   evaluation(2,v) = prediction_tot/rounds;
  end
- %error_abs_M(1,u) = error_abs_sum/rounds;   % calculate mean of absolute error
-end
-% diagram of different errors
-set(0,'DefaultFigureVisible','on') % do not suppress following bar graph output
-figure()
-hold on;
-title('optiFinder')
-x = 1:length(error_mC);
-y = error_mC;
-xlabel('moveProb');
-ylabel('Absolute Error');
-bar(x,y, 'EdgeColor','g', 'FaceColor','g')
-
-%{
-%% moveCorr
-mc_start = .00;
-mc_stop = .1;
-mc_step = .025;
-
-moveProb = .525;
-dataset = 2;
-redLight_act = 0;
-isAnimated = 0;
-
-error_abs_M = zeros(1,round((mc_stop-mc_start)/mc_step+1));
-error_abs_sum = 0;
-u = 0;
-
-set(0,'DefaultFigureVisible','off') % suppress bar graph output
-for moveCorr = mc_start:mc_step:mc_stop
-    u = u+1;
-    
-    for j = 1:rounds
-        error_abs = NaSch_Datasets_v1(dataset, moveProb, redLight_act, isAnimated, moveCorr);
-        error_abs_sum = error_abs_sum + error_abs;
-    end
-    
-    error_abs_M(1,u) = error_abs_sum/rounds;   % calculate mean of absolute error
 end
 
 % diagram of different errors
 set(0,'DefaultFigureVisible','on') % do not suppress following bar graph output
 figure()
 hold on;
-title('optiFinder')
-x = mc_start:mc_step:mc_stop;
-y = error_abs_M;
-xlabel('moveCorr');
-ylabel('Absolute Error');
+title('optiFinder - Precision')
+x = 1:length(evaluation);
+y = evaluation(1,:);
+xlabel('Parameter setting');
+ylabel('Precision');
 bar(x,y, 'EdgeColor','g', 'FaceColor','g')
-%}
+
+figure()
+hold on;
+title('optiFinder - Prediction')
+x = 1:length(evaluation);
+y = evaluation(2,:);
+xlabel('Parameter setting');
+ylabel('Prediction');
+bar(x,y, 'EdgeColor','g', 'FaceColor','g')
+
+figure()
+hold on;
+title('optiFinder - Precision : Prediction (3:1)')
+x = 1:length(evaluation);
+y = (3*evaluation(1,:)+evaluation(2,:))/4;
+xlabel('Parameter setting');
+ylabel('Precision : Prediction (3:1)');
+bar(x,y, 'EdgeColor','g', 'FaceColor','g')
 end
