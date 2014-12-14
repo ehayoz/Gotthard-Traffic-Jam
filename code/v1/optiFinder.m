@@ -4,17 +4,17 @@ function [moveProb, moveCorr] = optiFinder(dataset)
 %   - moveCorr
 
 %% moveCorr
-mc_start = .033;
-mc_stop = .066;
+mc_start = 0;
+mc_stop = .099;
 mc_step = .033;
 
 %% moveProb
-mp_start = .45;
+mp_start = .3;
 mp_stop = .55;
 mp_step = .05;
 
 isAnimated = 0;
-rounds = 1;
+rounds = 4;
 numberMC = round((mc_stop-mc_start)/mc_step+1);
 numberMP = round((mp_stop-mp_start)/mp_step+1);
 evaluation = zeros(2,numberMC * numberMP);
