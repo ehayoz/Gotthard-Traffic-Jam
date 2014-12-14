@@ -9,6 +9,7 @@
 \usepackage{epstopdf}
 \usepackage{booktabs}
 \usepackage{mcode}
+\usepackage{url}
 \usepackage[numbers]{natbib}
 \usepackage{amssymb, amsmath ,empheq}
 \usepackage{lmodern}
@@ -25,7 +26,7 @@ basicstyle=\footnotesize,
  breakatwhitespace=false,
  breaklines=true
 }
-\definecolor{background}{RGB}{245,245,245}
+\definecolor{background}{RGB}{248,248,255}
 \definecolor{dunkelblau}{RGB}{77,77,94}
 \definecolor{black}{gray}{0} % 10% gray
 \DeclareCaptionFont{white}{\color{white}}
@@ -51,7 +52,7 @@ basicstyle=\footnotesize,
   backgroundcolor=\color{background},
   showstringspaces=false,      % Leerzeichen in Strings anzeigen ? 
   frame=b,
-  basicstyle=\footnotesize\ttfamily
+  basicstyle=\scriptsize\ttfamily
 }
 
 \input{cover}
@@ -106,7 +107,7 @@ Janick Zwyssig\\ \vspace{.1cm}
 
 \section{Individual contributions}
 
-We devided the code work as follows (but at the end we both were involved in every part):
+We devided the code work as follows:
 
 Eric Hayoz:
 \begin{itemize}
@@ -119,12 +120,12 @@ Eric Hayoz:
 Janick Zwyssig:
 \begin{itemize}
 \item Implementation NaSch-Modell for n cars
-\item Implementation laneChange 
-\item Implementation redLight 
-\item Layout Street with Cars 
+\item Implementation laneChange \& redLight
+\item curve fitting for results
+\item congestion measurement
 \end{itemize}
 
-The written part was performed together.
+At the end both authors were involved in every part. The article was performed together.
 
 \section{Introduction}
 
@@ -153,7 +154,7 @@ The written part was performed together.
 \section{Appendix}
 \input{code.tex}
 
-%\input{bib.tex}
+\input{bib.tex}
 
 
 

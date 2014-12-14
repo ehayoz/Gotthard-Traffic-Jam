@@ -9,10 +9,8 @@ function draw_car(x0, y0, w, h)
 %   w: Width of the car
 %   h: Height of the car
 
-
 % Hold the graphics
 hold on
-
 
 % Define the coordinates for the car chassi
 chassi_x = [w/2 w/2 2*w/6 w/6 -2*w/6 -w/2 -w/2];

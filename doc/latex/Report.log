@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.11.11)  14 DEC 2014 10:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.11.11)  14 DEC 2014 16:06
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -607,6 +607,10 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 ))
+(/usr/share/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip10
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
 (/usr/share/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip43
@@ -651,7 +655,7 @@ LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
 \macc@depth=\count111
 \c@MaxMatrixCols=\count112
-\dotsspace@=\muskip10
+\dotsspace@=\muskip11
 \c@parentequation=\count113
 \dspbrk@lvl=\count114
 \tag@help=\toks21
@@ -784,25 +788,25 @@ overpic: relative positioning in percent
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 36.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 35.
+LaTeX Font Info:    ... okay on input line 36.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 36.
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -900,29 +904,29 @@ igures/ehayoz.png, id=13, 919.435pt x 200.75pt>
 File: figures/ehayoz.png Graphic file (type png)
 
 <use figures/ehayoz.png>
-Package pdftex.def Info: figures/ehayoz.png used on input line 79.
+Package pdftex.def Info: figures/ehayoz.png used on input line 80.
 (pdftex.def)             Requested size: 130.30534pt x 28.45274pt.
  <figures/jzwyssig.png, id=15, 114.9093pt x 58.0569pt>
 File: figures/jzwyssig.png Graphic file (type png)
 
 <use figures/jzwyssig.png>
-Package pdftex.def Info: figures/jzwyssig.png used on input line 83.
+Package pdftex.def Info: figures/jzwyssig.png used on input line 84.
 (pdftex.def)             Requested size: 56.3148pt x 28.45274pt.
  [2 <./figures/ehayoz.png> <./figures/jzwyssig.png>]
 <figures/originality.pdf, id=21, 597.23125pt x 845.1575pt>
 File: figures/originality.pdf Graphic file (type pdf)
 
 <use figures/originality.pdf>
-Package pdftex.def Info: figures/originality.pdf used on input line 88.
+Package pdftex.def Info: figures/originality.pdf used on input line 89.
 (pdftex.def)             Requested size: 430.00462pt x 561.6523pt.
 File: figures/ehayoz.png Graphic file (type png)
  <use figures/ehayoz.png>
-Package pdftex.def Info: figures/ehayoz.png used on input line 89.
+Package pdftex.def Info: figures/ehayoz.png used on input line 90.
 (pdftex.def)             Requested size: 80.01962pt x 5.69046pt.
 File: figures/jzwyssig.png Graphic file (type png)
 
 <use figures/jzwyssig.png>
-Package pdftex.def Info: figures/jzwyssig.png used on input line 90.
+Package pdftex.def Info: figures/jzwyssig.png used on input line 91.
 (pdftex.def)             Requested size: -20.69017pt x 29.02193pt.
 
 Overfull \vbox (5.17505pt too high) has occurred while \output is active []
@@ -966,16 +970,16 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [4
 
 ] (./abstract.tex)
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 113.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 114.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (./introduction.tex [5])
 (./model.tex
-Overfull \hbox (15.75128pt too wide) in paragraph at lines 2--5
+Overfull \hbox (5.8044pt too wide) in paragraph at lines 2--5
 \OT1/lmr/m/n/12 Schreck-en-berg to sim-u-late traf-fic flow on high-ways. It ex
--plained the so called "'Phantom-
+-plained the so called \OT1/lmr/m/it/12 Phantom-
  []
 
 <figures/nasch_symbol.pdf, id=246, 505.89pt x 148.3944pt>
@@ -985,28 +989,28 @@ File: figures/nasch_symbol.pdf Graphic file (type pdf)
 Package pdftex.def Info: figures/nasch_symbol.pdf used on input line 16.
 (pdftex.def)             Requested size: 430.00462pt x 126.13809pt.
  [6]
-<figures/nasch_1.pdf, id=252, 506.73314pt x 60.7068pt>
+<figures/nasch_1.pdf, id=253, 506.73314pt x 60.7068pt>
 File: figures/nasch_1.pdf Graphic file (type pdf)
 
 <use figures/nasch_1.pdf>
 Package pdftex.def Info: figures/nasch_1.pdf used on input line 20.
 (pdftex.def)             Requested size: 430.00462pt x 51.51578pt.
 
-<figures/nasch_2.pdf, id=253, 506.85362pt x 52.998pt>
+<figures/nasch_2.pdf, id=254, 506.85362pt x 52.998pt>
 File: figures/nasch_2.pdf Graphic file (type pdf)
 
 <use figures/nasch_2.pdf>
 Package pdftex.def Info: figures/nasch_2.pdf used on input line 24.
 (pdftex.def)             Requested size: 430.00462pt x 44.96278pt.
 
-<figures/nasch_3.pdf, id=254, 507.09451pt x 52.87755pt>
+<figures/nasch_3.pdf, id=255, 507.09451pt x 52.87755pt>
 File: figures/nasch_3.pdf Graphic file (type pdf)
 
 <use figures/nasch_3.pdf>
 Package pdftex.def Info: figures/nasch_3.pdf used on input line 28.
 (pdftex.def)             Requested size: 430.00462pt x 44.84122pt.
 
-<figures/nasch_4.pdf, id=255, 506.85362pt x 52.998pt>
+<figures/nasch_4.pdf, id=256, 506.85362pt x 52.998pt>
 File: figures/nasch_4.pdf Graphic file (type pdf)
 
 <use figures/nasch_4.pdf>
@@ -1030,103 +1034,131 @@ File: figures/nasch_5.pdf Graphic file (type pdf)
 <use figures/nasch_5.pdf>
 Package pdftex.def Info: figures/nasch_5.pdf used on input line 36.
 (pdftex.def)             Requested size: 430.00462pt x 44.93205pt.
+ <figures/map.png, id=365, 380.17032pt x 588.69937pt>
+File: figures/map.png Graphic file (type png)
+
+<use figures/map.png>
+Package pdftex.def Info: figures/map.png used on input line 43.
+(pdftex.def)             Requested size: 380.16939pt x 588.69792pt.
+ <figures/sketch.pdf, id=366, 509.86423pt x 81.77454pt>
+File: figures/sketch.pdf Graphic file (type pdf)
+
+<use figures/sketch.pdf>
+Package pdftex.def Info: figures/sketch.pdf used on input line 49.
+(pdftex.def)             Requested size: 387.00153pt x 62.07066pt.
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 ) (./implementation.tex
-Underfull \hbox (badness 10000) in paragraph at lines 11--11
-[]\OT1/lmr/m/n/12 Distance Er-st-feld -
- []
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <10> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <7> on input line 5.
+LaTeX Font Info:    External font `lmex10' loaded for size
+(Font)              <5> on input line 5.
 
-
-Overfull \hbox (27.39804pt too wide) in paragraph at lines 5--13
+Overfull \hbox (5.90306pt too wide) in paragraph at lines 5--13
 [] 
  []
 
 
-Underfull \hbox (badness 2065) in paragraph at lines 21--22
-[]\OT1/lmr/m/n/12 Constants in equa-
+Overfull \hbox (5.90306pt too wide) in paragraph at lines 15--27
+[][]
  []
 
 
-Overfull \hbox (35.99997pt too wide) in paragraph at lines 15--26
-[][] 
+Underfull \hbox (badness 10000) in paragraph at lines 15--27
+
  []
 
 [8 <./figures/nasch_4.pdf> <./figures/nasch_5.pdf
 
 pdfTeX warning: pdflatex (file ./figures/nasch_5.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
->] [9]
-Overfull \hbox (10.61526pt too wide) in paragraph at lines 38--39
-\OT1/lmr/m/n/12 ber^^?ucksichtigt, dass Au-tos ^^?ofter von der linken zur rech
-ten Spur wech-seln als umgekehrt.
- []
-
-[10] <figures/dataset.png, id=448, 563.10374pt x 218.31563pt>
+> <./figures/map.png>] [9 <./figures/sketch.pdf>]
+<figures/dataset.png, id=464, 563.10374pt x 218.31563pt>
 File: figures/dataset.png Graphic file (type png)
 
 <use figures/dataset.png>
-Package pdftex.def Info: figures/dataset.png used on input line 54.
+Package pdftex.def Info: figures/dataset.png used on input line 53.
 (pdftex.def)             Requested size: 430.00462pt x 166.71442pt.
 
-<figures/congestion.png, id=449, 725.71124pt x 156.585pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/congestion.png, id=465, 725.71124pt x 156.585pt>
 File: figures/congestion.png Graphic file (type png)
 
 <use figures/congestion.png>
-Package pdftex.def Info: figures/congestion.png used on input line 59.
+Package pdftex.def Info: figures/congestion.png used on input line 58.
 (pdftex.def)             Requested size: 430.00462pt x 92.78336pt.
-) (./results.tex [11 <./figures/dataset.png> <./figures/congestion.png>] <figur
-es/dataset1.pdf, id=456, 758.835pt x 395.879pt>
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+) (./results.tex [10] <figures/dataset1.pdf, id=470, 758.835pt x 395.879pt>
 File: figures/dataset1.pdf Graphic file (type pdf)
 
 <use figures/dataset1.pdf>
 Package pdftex.def Info: figures/dataset1.pdf used on input line 19.
 (pdftex.def)             Requested size: 387.00153pt x 201.89561pt.
 
-<figures/dataset2.pdf, id=457, 758.835pt x 566.91798pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<figures/dataset2.pdf, id=471, 758.835pt x 566.91798pt>
 File: figures/dataset2.pdf Graphic file (type pdf)
 
 <use figures/dataset2.pdf>
-Package pdftex.def Info: figures/dataset2.pdf used on input line 23.
+Package pdftex.def Info: figures/dataset2.pdf used on input line 24.
 (pdftex.def)             Requested size: 387.00153pt x 289.12434pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-) (./summary.tex) (./code.tex [12 <./figures/dataset1.pdf>]
-LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 4.
+[11 <./figures/dataset.png> <./figures/congestion.png>]) (./summary.tex)
+(./code.tex [12 <./figures/dataset1.pdf>]
+LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 3.
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) (../../code/final.m [13 <./figures/dataset2.pdf>]
-LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 9.
- (/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
+) (../../code/v1/interpolate.m
+LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 15.
+
+
+(/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [14]
-[15])) [16] (./Report.aux) ) 
+) [13 <./figures/dataset2.pdf>]
+[14]) [15] (../../code/v1/optiFinder.m [16]) [17] (../../code/Final.m [18]
+[19] [20] [21] [22] [23] [24])) (./bib.tex) [25] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 9172 strings out of 493108
- 128853 string characters out of 6140724
- 408073 words of memory out of 5000000
- 12421 multiletter control sequences out of 15000+600000
- 53827 words of font info for 46 fonts, out of 8000000 for 9000
+ 9369 strings out of 493108
+ 131252 string characters out of 6140724
+ 478195 words of memory out of 5000000
+ 12591 multiletter control sequences out of 15000+600000
+ 64865 words of font info for 62 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,9n,42p,863b,2217s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.en
-c}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf-dist/
-fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathi
-t.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}</usr/share/texmf
--dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmbx9.pfb></usr/sh
-are/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/ty
-pe1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pfb>
-</usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist/f
-onts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
-6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf
--dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/lm/lmtt9.pfb>
-Output written on Report.pdf (16 pages, 1460849 bytes).
+ 42i,9n,42p,997b,2207s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/te
+xmf-dist/fonts/enc/dvips/lm/lm-rmtt.enc}{/usr/share/texmf-dist/fonts/enc/dvips/
+lm/lm-rm.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/t
+exmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvi
+ps/lm/lm-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></u
+sr/share/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/lm/lmbx9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi1
+0.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf
+-dist/fonts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public
+/lm/lmr10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1
+/public/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></u
+sr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fon
+ts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt
+10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
+Output written on Report.pdf (25 pages, 1736653 bytes).
 PDF statistics:
- 541 PDF objects out of 1000 (max. 8388607)
- 317 compressed objects within 4 object streams
+ 601 PDF objects out of 1000 (max. 8388607)
+ 359 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 77 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 87 words of extra memory for PDF output out of 10000 (max. 10000000)
 

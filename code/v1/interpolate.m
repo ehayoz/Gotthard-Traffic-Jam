@@ -62,7 +62,7 @@ opts.Normalize = 'on';
 
 if showPlot
    % Plot fit with data.
-  % figure('Name', ['Dataset ' num2str(dataset)]);
+   figure('Name', ['Dataset ' num2str(dataset)]);
    p = plot(fitresult, '-b', xData, yData, 'or');
    set(p, 'LineWidth', 2)
 

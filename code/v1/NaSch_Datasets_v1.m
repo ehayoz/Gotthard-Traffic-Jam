@@ -1,4 +1,4 @@
-function [error] = NaSch_Datasets_v1(dataset, moveProb, redLight_act, isAnimated, moveCorr)
+function [error] = NaSch_Datasets_v1(dataset, moveProb, isAnimated, moveCorr)
 
 % values
 % NaSch_Datasets_v1(1,.525,0,0,0,.055): perfectly symmetric
@@ -8,7 +8,6 @@ function [error] = NaSch_Datasets_v1(dataset, moveProb, redLight_act, isAnimated
 % INPUT:
 %   dataset: choose one of 4 datasets, {1,2,3,4} (don't use 3,4:evaluation)
 %   moveProb: the probability for a car to move forwards, 0..1
-%   redLight_act: enable/disable red light (0 off, 1 on)
 %   isAnimated: start program with animation, boolean 1=true 0=false
 % OUTPUT:
 %   error_tot:  total
@@ -24,6 +23,7 @@ measureInterval = 30;    % measure every #min
 [I, S] = Datasets(dataset);
 nIter = length(I)*180;   % number of iterations; datasets: #cars/180s => we want 1 iteration / s
 q = 0;                   % running variable for reading outSet
+redLight_act = 1;        % activate redLight
 
 % set parameter values
 conv = 1000/lC;    % "convert", #cells that matches 1km
@@ -71,21 +71,19 @@ congStart = 0;
 % define road (-1 = no car; 0..vmax = car, value represents velocity)
 X = -ones(2,N);
 
-%%%%%%%%%%%%%%%%%% average inflow (every 2h(48) 1/2h(24) %%%%
-%{
+% take average inflow (every 2 hours)
 if mod(dataset,2)
     inflow = zeros(1,24);
     for i = 0:23
         inflow(1,i+1) = sum(I(1,1+i*40:40+i*40)) / 40;
     end
 else
-    inflow = zeros(1,48);
-    for i = 0:47
-        inflow(1,i+1) = sum(I(1,1+i*10:10+i*10)) / 10;
+    inflow = zeros(1,12);
+    for i = 0:11
+        inflow(1,i+1) = sum(I(1,1+i*40:40+i*40)) / 40;
     end
 end
 p=1;
-%}
 
 %% main loop, iterating the time variable, t
 for t = 1:nIter
@@ -192,28 +190,22 @@ for t = 1:nIter
     if t > q*180 % datasets: #cars / 180s => every 180s we take new inflow value from dataset
         q = q + 1;
         
-        %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% average inflow %%%%%%%%%%%%%%%%%%%%%%
-        %{
+        % average inflow
+        if mod(q,40) == 0
+           p = p + 1;
+        end
+        
         if mod(dataset,2)
-            if mod(q,40) == 0
-                p = p + 1;
-            end
             if p > 24
-                p = 24;
+               p = 24;
             end
         else
-            if mod(q,10) == 0
-                p = p + 1;
-            end
-            if p > 48
-                p = 48;
+            if p > 12
+               p = 12;
             end
         end
         rateI = inflow(1,p)/(2*180);   
-        %}
-        %%{
-        rateI = I(1,q)/(2*180);
-        %}     
+
         rateS_m = S(1,q); % mean speed
         rateS_m = rateS_m/(3.6*5.55555); % convert km/h into NaSch-units
         if rateS_m > 5
@@ -222,7 +214,7 @@ for t = 1:nIter
             rateS_m = 2;
         end
     end
-
+INFLOWMATRIX(1,t) = rateI;
     rateS = ceil(rateS_m) - (rand < (ceil(rateS_m)-rateS_m));
     
     % update position X(1,1) left lane (inflow left)
@@ -280,7 +272,7 @@ for t = 1:nIter
         % count only connected congestion, gaps are allowed.
         % gap is #gaps allowed between two 'congestion-blocks'
         gap = 1;
-        if bV < 2  &&  bD > .5
+        if bV < 1  &&  bD > .48
             bC = bC + 1;
             bE = 0;
         elseif bE >= gap
@@ -331,8 +323,9 @@ for t = 1:nIter
     bE = 0;
     
     %% animation
-    if isAnimated && (t > 10*3600 && t < 11*3600 || t > 15*3600)
-        clf; hold on;
+    if isAnimated
+        %clf; 
+        hold on;
         xlim([N-100 N+1])
         ylim([-20 20])
         plot(N-100:cC+1, 0.5*ones(1,length(N-100:cC+1)), 'Color', [.75 .75 .75], 'LineWidth', 12)
@@ -346,8 +339,7 @@ for t = 1:nIter
                     draw_car(i, 1.2*(1.5-row), 0.8, 0.2);
                 end
             end
-        end
-        
+        end       
         pause(0.01)
     end
 end
@@ -358,6 +350,7 @@ disp (['inflow and outflow are equal to ' num2str(inflowCounter)]);
 
 % diagram of comparison model - reality
 [Y_dataset, data] = interpolate(dataset, measureInterval, 0);
+figure
 hold on;
 title(' Comparison Model - Reality ')
 xval = measureInterval / 60;
@@ -382,37 +375,17 @@ end
 grid on;
 hold off;
 
-%{
-% diagram of simulation congestion
-figure()
-bar(xval:xval:nIter/3600,congPlot)
-% Label axes
-ylim([0 16]);
-if mod(dataset,2)
-   xlabel(['Hours - measured every ' num2str(measureInterval) ' minutes'],'fontweight','bold','fontsize',11);
-else
-   xlabel(['Hours - measured every ' num2str(measureInterval) ' minutes'],'fontweight','bold','fontsize',11);
-   if dataset == 2
-      ylim([0 6]);
-   end
-end
-xlim([0 nIter/3600]);
-ylabel('Kilometer', 'fontweight','bold','fontsize',11);
-title('Simulated Congestion','fontweight','bold','fontsize', 18);
-grid on
-hold off;
-%}
-
 %% error evaluation
 area_dataset = xval * sum(Y_dataset);
 error = 0;
 for i = 1:length(congPlot)
-    if Y_dataset(i) > 0
-       error = error + xval*abs(congPlot(i)-Y_dataset(i));
-    end
+    error = error + xval*abs(congPlot(i)-Y_dataset(i));
 end
 error =  error / area_dataset;
+precision = 1 - error
 
+figure()
+bar(1:nIter, INFLOWMATRIX)
 end
 
 %% datasets

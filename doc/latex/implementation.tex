@@ -1,8 +1,8 @@
 
 \subsection{Correlation between reality and model}
 
-
-\begin{tabular}{p{0.33\textwidth} p{0.4\textwidth} p{0.25\textwidth}}
+\small{
+\begin{tabular}{p{0.32\textwidth} p{0.4\textwidth} p{0.21\textwidth}}
 \textbf{Item}			& \textbf{Reality}	&  \textbf{Model}\\
 \midrule
 Time			& 1s		& 1 iteration\\
@@ -12,7 +12,7 @@ Distance Erstfeld - Göschenen & 19'000 m & 4222 cells (19'000 m / 4.5 m, rounde
 \end{tabular}
 
 \vspace*{1.5cm}
-\begin{tabular}{p{0.25\textwidth} p{0.5\textwidth} p{0.25\textwidth}}
+\begin{tabular}{p{0.22\textwidth} p{0.49\textwidth} p{0.22\textwidth}}
 \textbf{Variable name}	& \textbf{Meaning}	& \textbf{Values} \\
 \midrule
 moveProb & Probability for a car to move forward & 0\ldots 1  \\
@@ -23,7 +23,7 @@ redLight & Illuminate a dropcounter redlight in front of tunnel (it turns on if 
 dropCounter & Length of a period when redlight is ON & 0\ldots Inf \\
 - & Maximum speed just in front of tunnel & 0\ldots 5
 \end{tabular}
-
+}
 
 \subsection{Inflow}
 The inflow is given in \#cars / 180 s. For every iteration in our model, the cars are spawned in Erstfeld (starting position) on the two lanes with a total probability $p = \#\textrm{cars} / 180$. As there are normally slightly more vehicles on the right lane, we multiply $p$ for the right lane with a factor of 1.1 and the $p$ for the left lane with a factor of 0.9.
@@ -34,17 +34,16 @@ Example:
 
 Average Speed is 94 km/h. Converting into Nagel-Schreckenberg-Speed results in 4.7. Our model would in this case spawn 70\% of the cars with a speed of 5, and 30\% with a speed of 4.
 
-\subsection{Lane Change}
-Weil Autos in der Realität oft die Spur wechseln, beispielsweise zum Überholen, soll auch in diesem Modell einen Spurwechsel implementiert werden. Dabei wurde berücksichtigt, dass Autos  öfter von der linken zur rechten Spur wechseln als umgekehrt. Damit soll bewerkstelligt werden, dass auf der rechten Seite etwas mehr Autos fahren als auf der linken. Ungefähr 60 Meter vor der Spurreduktion wechseln die Autos mit einer erhöhten Wahrscheinlichkeit nach rechts.
+\subsection{Lane Change and red-light}
+As cars change lane often in reality, it should be also a part of the model. Furthermore it is necessary to change the lane due to lane reduction in front of the tunnel. The probability to change the lane from left to the right is higher than backwards. That yields more cars on the right lane. In front of the tunnel the probability increases, due to lane reduction.
 
-\subsection{Red Light}
-Das Rotlicht wird nur bei Stau eingeschaltet. Es regelt ca. 40 Meter vor der Spurreduktion die Anzahl Fahrzeuge, die durch den Tunnel fahren dürfen. Im Modell wurde es ebenso ca. 40 Meter vor dem Tunnel errichtet. Es wird nach 2 Kilometer Stau eingeschaltet und lässt jede Sekunde ein Fahrzeug durch.
+Red-light is activated if the congestion length exceed the length of one Kilometre. It's acting approximately 40 meters in front of the lane reduction. Every second one car can pass through the tunnel. 
 
 
 \subsection{Congestion Length}
-The length of a congestion is given in Kilometers. First we calculate the length of the congestion in our simulation and then multiply the length (unit: cells) by the length of a cell (4.5m) to enable a comparison between the virtual (calculated) congestion with the real (measured) congestion.
+The length of a congestion is given in Kilometres. First we calculate the length of the congestion in our simulation and then multiply the length (unit: cells) by the length of a cell (4.5 m) to enable a comparison between the virtual (calculated) congestion with the real (measured) congestion.
 
-Measuring the congestion length in our model: To obtain a stable output, we divide the highway into blocks with a length of 50 cells. If a block fulfils the two following criteria, it is declared a congestion block: high density and low average speed. We count the congestion blocks starting in Göschenen heading northbound to Erstfeld, and we only accept one uncongested block between any two blocks, otherwise we consider the congestion as terminated at the point where two or more blocks do not fulfill the congestion criteria anymore.
+Measuring the congestion length in our model: To obtain a stable output, we divide the highway into blocks with a length of 50 cells. If a block fulfils the two following criteria, it is declared a congestion block: high density and low average speed. We count the congestion blocks starting in Göschenen heading northbound to Erstfeld, and we only accept one uncongested block between any two blocks, otherwise we consider the congestion as terminated at the point where two or more blocks do not fulfil the congestion criteria anymore.
 
 
 \subsection{Processing the datasets delivered by ASTRA}

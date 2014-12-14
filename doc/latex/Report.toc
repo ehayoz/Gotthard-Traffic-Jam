@@ -10,12 +10,11 @@
 \contentsline {subsection}{\numberline {5.1}Correlation between reality and model}{9}
 \contentsline {subsection}{\numberline {5.2}Inflow}{9}
 \contentsline {subsection}{\numberline {5.3}Average speed}{10}
-\contentsline {subsection}{\numberline {5.4}Lane Change}{10}
-\contentsline {subsection}{\numberline {5.5}Red Light}{10}
-\contentsline {subsection}{\numberline {5.6}Congestion Length}{10}
-\contentsline {subsection}{\numberline {5.7}Processing the datasets delivered by ASTRA}{11}
-\contentsline {section}{\numberline {6}Simulation Results and Discussion}{11}
-\contentsline {subsection}{\numberline {6.1}Preparing dataset -- curve fitting}{12}
-\contentsline {subsection}{\numberline {6.2}train model}{13}
-\contentsline {section}{\numberline {7}Summary and Outlook}{13}
-\contentsline {section}{\numberline {8}Appendix}{13}
+\contentsline {subsection}{\numberline {5.4}Lane Change and red-light}{10}
+\contentsline {subsection}{\numberline {5.5}Congestion Length}{10}
+\contentsline {subsection}{\numberline {5.6}Processing the datasets delivered by ASTRA}{10}
+\contentsline {section}{\numberline {6}Simulation Results and Discussion}{10}
+\contentsline {subsection}{\numberline {6.1}Preparing dataset -- curve fitting}{11}
+\contentsline {subsection}{\numberline {6.2}train model}{11}
+\contentsline {section}{\numberline {7}Summary and Outlook}{12}
+\contentsline {section}{\numberline {8}Appendix}{12}
