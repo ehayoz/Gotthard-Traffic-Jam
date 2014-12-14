@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.11.11)  14 DEC 2014 16:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014/Arch Linux) (preloaded format=pdflatex 2014.11.11)  14 DEC 2014 23:02
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -607,6 +607,14 @@ Package textcomp Info: Setting pplj sub-encoding to TS1/3 on input line 338.
 Package textcomp Info: Setting ptmx sub-encoding to TS1/4 on input line 339.
 Package textcomp Info: Setting ptmj sub-encoding to TS1/4 on input line 340.
 ))
+(/usr/share/texmf-dist/tex/latex/float/float.sty
+Package: float 2001/11/08 v1.3d Float enhancements (AL)
+\c@float@type=\count105
+\float@exts=\toks20
+\float@box=\box29
+\@float@everytoks=\toks21
+\@floatcapt=\box30
+)
 (/usr/share/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip10
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
@@ -616,7 +624,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip43
 \bibsep=\skip44
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count105
+\c@NAT@ctr=\count106
 )
 (/usr/share/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2013/01/14 v2.14 AMS math features
@@ -628,7 +636,7 @@ Package: amstext 2000/06/29 v2.01
 
 (/usr/share/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0
-\@emptytoks=\toks20
+\@emptytoks=\toks22
 \ex@=\dimen141
 ))
 (/usr/share/texmf-dist/tex/latex/amsmath/amsbsy.sty
@@ -638,41 +646,41 @@ Package: amsbsy 1999/11/29 v1.2d
 (/usr/share/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count106
+\inf@bad=\count107
 LaTeX Info: Redefining \frac on input line 210.
-\uproot@=\count107
-\leftroot@=\count108
+\uproot@=\count108
+\leftroot@=\count109
 LaTeX Info: Redefining \overline on input line 306.
-\classnum@=\count109
-\DOTSCASE@=\count110
+\classnum@=\count110
+\DOTSCASE@=\count111
 LaTeX Info: Redefining \ldots on input line 378.
 LaTeX Info: Redefining \dots on input line 381.
 LaTeX Info: Redefining \cdots on input line 466.
-\Mathstrutbox@=\box29
-\strutbox@=\box30
+\Mathstrutbox@=\box31
+\strutbox@=\box32
 \big@size=\dimen143
 LaTeX Font Info:    Redeclaring font encoding OML on input line 566.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 567.
-\macc@depth=\count111
-\c@MaxMatrixCols=\count112
+\macc@depth=\count112
+\c@MaxMatrixCols=\count113
 \dotsspace@=\muskip11
-\c@parentequation=\count113
-\dspbrk@lvl=\count114
-\tag@help=\toks21
-\row@=\count115
-\column@=\count116
-\maxfields@=\count117
-\andhelp@=\toks22
+\c@parentequation=\count114
+\dspbrk@lvl=\count115
+\tag@help=\toks23
+\row@=\count116
+\column@=\count117
+\maxfields@=\count118
+\andhelp@=\toks24
 \eqnshift@=\dimen144
 \alignsep@=\dimen145
 \tagshift@=\dimen146
 \tagwidth@=\dimen147
 \totwidth@=\dimen148
 \lineht@=\dimen149
-\@envbody=\toks23
+\@envbody=\toks25
 \multlinegap=\skip46
 \multlinetaggap=\skip47
-\mathdisplay@stack=\toks24
+\mathdisplay@stack=\toks26
 LaTeX Info: Redefining \[ on input line 2665.
 LaTeX Info: Redefining \] on input line 2666.
 )
@@ -687,20 +695,20 @@ Package: mathtools 2014/07/16 v1.15 mathematical typesetting tools
 
 (/usr/share/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count118
-\calc@Bcount=\count119
+\calc@Acount=\count119
+\calc@Bcount=\count120
 \calc@Adimen=\dimen150
 \calc@Bdimen=\dimen151
 \calc@Askip=\skip48
 \calc@Bskip=\skip49
 LaTeX Info: Redefining \setlength on input line 75.
 LaTeX Info: Redefining \addtolength on input line 76.
-\calc@Ccount=\count120
+\calc@Ccount=\count121
 \calc@Cskip=\skip50
 )
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
-\g_MT_multlinerow_int=\count121
+\g_MT_multlinerow_int=\count122
 \l_MT_multwidth_dim=\dimen152
 \origjot=\skip51
 \l_MT_shortvdotswithinadjustabove_dim=\dimen153
@@ -710,21 +718,21 @@ LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \l_MT_above_shortintertext_sep=\dimen157
 \l_MT_below_shortintertext_sep=\dimen158
 )
-\l_EQ_equationtype_int=\count122
-\l_EQ_alignmentmode_int=\count123
+\l_EQ_equationtype_int=\count123
+\l_EQ_alignmentmode_int=\count124
 \l_EQ_totalwidth_dim=\dimen159
 \l_EQ_displaywidth_dim=\dimen160
 \l_EQ_temp_linewidth_dim=\dimen161
 \EmphEqdelimitershortfall=\dimen162
-\EmphEqdelimiterfactor=\count124
+\EmphEqdelimiterfactor=\count125
 \g_EQ_toptag_height_dim=\dimen163
 \g_EQ_bottomtag_depth_dim=\dimen164
 \g_EQ_toprow_height_dim=\dimen165
 \g_EQ_bottomrow_depth_dim=\dimen166
 \g_EQ_widesttag_dim=\dimen167
-\EQ_mathdisplay_box=\box31
-\EQ_tag_box=\box32
-\g_EQ_temprow_int=\count125
+\EQ_mathdisplay_box=\box33
+\EQ_tag_box=\box34
+\g_EQ_temprow_int=\count126
 )
 (/usr/share/texmf-dist/tex/latex/lm/lmodern.sty
 Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
@@ -767,46 +775,46 @@ Package: overpic 2010/09/13 v0.53  Overwriting graphics
 Package: overpic v0.53 <2010/09/13> (RN)
 (/usr/share/texmf-dist/tex/latex/eepic/epic.sty
 Enhancements to Picture Environment. Version 1.2 - Released June 1, 1986
-\@@multicnt=\count126
-\d@lta=\count127
+\@@multicnt=\count127
+\d@lta=\count128
 \@delta=\dimen168
 \@@delta=\dimen169
-\@gridcnt=\count128
-\@joinkind=\count129
+\@gridcnt=\count129
+\@joinkind=\count130
 \@dotgap=\dimen170
 \@ddotgap=\dimen171
-\@x@diff=\count130
-\@y@diff=\count131
+\@x@diff=\count131
+\@y@diff=\count132
 \x@diff=\dimen172
 \y@diff=\dimen173
-\@dotbox=\box33
-\num@segments=\count132
-\num@segmentsi=\count133
+\@dotbox=\box35
+\num@segments=\count133
+\num@segmentsi=\count134
 \@datafile=\read1
 )
 overpic: relative positioning in percent
 ) (./Report.aux)
 \openout1 = `Report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 36.
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 36.
-LaTeX Font Info:    Try loading font information for TS1+cmr on input line 36.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 37.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 37.
+LaTeX Font Info:    Try loading font information for TS1+cmr on input line 37.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmr.fd
 File: ts1cmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-LaTeX Font Info:    ... okay on input line 36.
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 36.
+LaTeX Font Info:    ... okay on input line 37.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 37.
 
 (/usr/share/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -847,17 +855,17 @@ File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 
 (/usr/share/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count134
+\scratchcounter=\count135
 \scratchdimen=\dimen174
-\scratchbox=\box34
-\nofMPsegments=\count135
-\nofMParguments=\count136
-\everyMPshowfont=\toks25
-\MPscratchCnt=\count137
+\scratchbox=\box36
+\nofMPsegments=\count136
+\nofMParguments=\count137
+\everyMPshowfont=\toks27
+\MPscratchCnt=\count138
 \MPscratchDim=\dimen175
-\MPnumerator=\count138
-\makeMPintoPDFobject=\count139
-\everyMPtoPDFconversion=\toks26
+\MPnumerator=\count139
+\makeMPintoPDFobject=\count140
+\everyMPtoPDFconversion=\toks28
 ) (/usr/share/texmf-dist/tex/latex/ms/ragged2e.sty
 Package: ragged2e 2009/05/21 v2.1 ragged2e Package (MS)
 
@@ -883,10 +891,11 @@ LaTeX Info: Redefining \selectfont on input line 126.
 \JustifyingParindent=\skip65
 )
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: float package is loaded.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\c@lstlisting=\count140
-\Hy@linkcounter=\count141
+\c@lstlisting=\count141
+\Hy@linkcounter=\count142
 
 (/usr/share/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2014/03/04 1.5c listings language file
@@ -904,29 +913,29 @@ igures/ehayoz.png, id=13, 919.435pt x 200.75pt>
 File: figures/ehayoz.png Graphic file (type png)
 
 <use figures/ehayoz.png>
-Package pdftex.def Info: figures/ehayoz.png used on input line 80.
+Package pdftex.def Info: figures/ehayoz.png used on input line 81.
 (pdftex.def)             Requested size: 130.30534pt x 28.45274pt.
  <figures/jzwyssig.png, id=15, 114.9093pt x 58.0569pt>
 File: figures/jzwyssig.png Graphic file (type png)
 
 <use figures/jzwyssig.png>
-Package pdftex.def Info: figures/jzwyssig.png used on input line 84.
+Package pdftex.def Info: figures/jzwyssig.png used on input line 85.
 (pdftex.def)             Requested size: 56.3148pt x 28.45274pt.
  [2 <./figures/ehayoz.png> <./figures/jzwyssig.png>]
 <figures/originality.pdf, id=21, 597.23125pt x 845.1575pt>
 File: figures/originality.pdf Graphic file (type pdf)
 
 <use figures/originality.pdf>
-Package pdftex.def Info: figures/originality.pdf used on input line 89.
+Package pdftex.def Info: figures/originality.pdf used on input line 90.
 (pdftex.def)             Requested size: 430.00462pt x 561.6523pt.
 File: figures/ehayoz.png Graphic file (type png)
  <use figures/ehayoz.png>
-Package pdftex.def Info: figures/ehayoz.png used on input line 90.
+Package pdftex.def Info: figures/ehayoz.png used on input line 91.
 (pdftex.def)             Requested size: 80.01962pt x 5.69046pt.
 File: figures/jzwyssig.png Graphic file (type png)
 
 <use figures/jzwyssig.png>
-Package pdftex.def Info: figures/jzwyssig.png used on input line 91.
+Package pdftex.def Info: figures/jzwyssig.png used on input line 92.
 (pdftex.def)             Requested size: -20.69017pt x 29.02193pt.
 
 Overfull \vbox (5.17505pt too high) has occurred while \output is active []
@@ -970,7 +979,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
  [4
 
 ] (./abstract.tex)
-LaTeX Font Info:    Try loading font information for TS1+lmr on input line 114.
+LaTeX Font Info:    Try loading font information for TS1+lmr on input line 115.
 
 
 (/usr/share/texmf-dist/tex/latex/lm/ts1lmr.fd
@@ -982,39 +991,25 @@ Overfull \hbox (5.8044pt too wide) in paragraph at lines 2--5
 -plained the so called \OT1/lmr/m/it/12 Phantom-
  []
 
-<figures/nasch_symbol.pdf, id=246, 505.89pt x 148.3944pt>
+[6] <figures/nasch_symbol.pdf, id=258, 505.89pt x 148.3944pt>
 File: figures/nasch_symbol.pdf Graphic file (type pdf)
 
 <use figures/nasch_symbol.pdf>
-Package pdftex.def Info: figures/nasch_symbol.pdf used on input line 16.
+Package pdftex.def Info: figures/nasch_symbol.pdf used on input line 17.
 (pdftex.def)             Requested size: 430.00462pt x 126.13809pt.
- [6]
-<figures/nasch_1.pdf, id=253, 506.73314pt x 60.7068pt>
+
+<figures/nasch_1.pdf, id=259, 506.73314pt x 60.7068pt>
 File: figures/nasch_1.pdf Graphic file (type pdf)
 
 <use figures/nasch_1.pdf>
-Package pdftex.def Info: figures/nasch_1.pdf used on input line 20.
+Package pdftex.def Info: figures/nasch_1.pdf used on input line 23.
 (pdftex.def)             Requested size: 430.00462pt x 51.51578pt.
 
-<figures/nasch_2.pdf, id=254, 506.85362pt x 52.998pt>
+<figures/nasch_2.pdf, id=260, 506.85362pt x 52.998pt>
 File: figures/nasch_2.pdf Graphic file (type pdf)
 
 <use figures/nasch_2.pdf>
-Package pdftex.def Info: figures/nasch_2.pdf used on input line 24.
-(pdftex.def)             Requested size: 430.00462pt x 44.96278pt.
-
-<figures/nasch_3.pdf, id=255, 507.09451pt x 52.87755pt>
-File: figures/nasch_3.pdf Graphic file (type pdf)
-
-<use figures/nasch_3.pdf>
-Package pdftex.def Info: figures/nasch_3.pdf used on input line 28.
-(pdftex.def)             Requested size: 430.00462pt x 44.84122pt.
-
-<figures/nasch_4.pdf, id=256, 506.85362pt x 52.998pt>
-File: figures/nasch_4.pdf Graphic file (type pdf)
-
-<use figures/nasch_4.pdf>
-Package pdftex.def Info: figures/nasch_4.pdf used on input line 32.
+Package pdftex.def Info: figures/nasch_2.pdf used on input line 29.
 (pdftex.def)             Requested size: 430.00462pt x 44.96278pt.
  [7 <./figures/nasch_symbol.pdf> <./figures/nasch_1.pdf
 
@@ -1024,141 +1019,176 @@ pdfs with page group included in a single page
 
 pdfTeX warning: pdflatex (file ./figures/nasch_2.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
-> <./figures/nasch_3.pdf
+>] <figures/nasch_3.pdf, id=338, 507.09451pt x 52.87755pt>
+File: figures/nasch_3.pdf Graphic file (type pdf)
 
-pdfTeX warning: pdflatex (file ./figures/nasch_3.pdf): PDF inclusion: multiple 
-pdfs with page group included in a single page
->] <figures/nasch_5.pdf, id=364, 507.21495pt x 52.998pt>
+<use figures/nasch_3.pdf>
+Package pdftex.def Info: figures/nasch_3.pdf used on input line 33.
+(pdftex.def)             Requested size: 430.00462pt x 44.84122pt.
+
+<figures/nasch_4.pdf, id=339, 506.85362pt x 52.998pt>
+File: figures/nasch_4.pdf Graphic file (type pdf)
+
+<use figures/nasch_4.pdf>
+Package pdftex.def Info: figures/nasch_4.pdf used on input line 37.
+(pdftex.def)             Requested size: 430.00462pt x 44.96278pt.
+
+<figures/nasch_5.pdf, id=340, 507.21495pt x 52.998pt>
 File: figures/nasch_5.pdf Graphic file (type pdf)
 
 <use figures/nasch_5.pdf>
-Package pdftex.def Info: figures/nasch_5.pdf used on input line 36.
+Package pdftex.def Info: figures/nasch_5.pdf used on input line 41.
 (pdftex.def)             Requested size: 430.00462pt x 44.93205pt.
- <figures/map.png, id=365, 380.17032pt x 588.69937pt>
-File: figures/map.png Graphic file (type png)
 
-<use figures/map.png>
-Package pdftex.def Info: figures/map.png used on input line 43.
-(pdftex.def)             Requested size: 380.16939pt x 588.69792pt.
- <figures/sketch.pdf, id=366, 509.86423pt x 81.77454pt>
+<figures/sketch.pdf, id=341, 509.86423pt x 81.77454pt>
 File: figures/sketch.pdf Graphic file (type pdf)
 
 <use figures/sketch.pdf>
 Package pdftex.def Info: figures/sketch.pdf used on input line 49.
 (pdftex.def)             Requested size: 387.00153pt x 62.07066pt.
+ <figures/map.png, id=342, 380.17032pt x 588.69937pt>
+File: figures/map.png Graphic file (type png)
+
+<use figures/map.png>
+Package pdftex.def Info: figures/map.png used on input line 55.
+(pdftex.def)             Requested size: 380.16939pt x 588.69792pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 ) (./implementation.tex
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 5.
+(Font)              <10> on input line 7.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 5.
+(Font)              <7> on input line 7.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 5.
+(Font)              <5> on input line 7.
 
-Overfull \hbox (5.90306pt too wide) in paragraph at lines 5--13
-[] 
+Overfull \hbox (5.90306pt too wide) in paragraph at lines 7--15
+[][] 
  []
 
+[8 <./figures/nasch_3.pdf> <./figures/nasch_4.pdf
 
-Overfull \hbox (5.90306pt too wide) in paragraph at lines 15--27
-[][]
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 15--27
-
- []
-
-[8 <./figures/nasch_4.pdf> <./figures/nasch_5.pdf
+pdfTeX warning: pdflatex (file ./figures/nasch_4.pdf): PDF inclusion: multiple 
+pdfs with page group included in a single page
+> <./figures/nasch_5.pdf
 
 pdfTeX warning: pdflatex (file ./figures/nasch_5.pdf): PDF inclusion: multiple 
 pdfs with page group included in a single page
-> <./figures/map.png>] [9 <./figures/sketch.pdf>]
-<figures/dataset.png, id=464, 563.10374pt x 218.31563pt>
+> <./figures/sketch.pdf
+
+pdfTeX warning: pdflatex (file ./figures/sketch.pdf): PDF inclusion: multiple p
+dfs with page group included in a single page
+>]
+Overfull \hbox (5.90306pt too wide) in paragraph at lines 21--32
+[][] 
+ []
+
+[9 <./figures/map.png>] [10]
+<figures/dataset.png, id=474, 563.10374pt x 218.31563pt>
 File: figures/dataset.png Graphic file (type png)
 
 <use figures/dataset.png>
-Package pdftex.def Info: figures/dataset.png used on input line 53.
+Package pdftex.def Info: figures/dataset.png used on input line 61.
 (pdftex.def)             Requested size: 430.00462pt x 166.71442pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/congestion.png, id=465, 725.71124pt x 156.585pt>
+<figures/congestion.png, id=475, 725.71124pt x 156.585pt>
 File: figures/congestion.png Graphic file (type png)
 
 <use figures/congestion.png>
-Package pdftex.def Info: figures/congestion.png used on input line 58.
+Package pdftex.def Info: figures/congestion.png used on input line 66.
 (pdftex.def)             Requested size: 430.00462pt x 92.78336pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-) (./results.tex [10] <figures/dataset1.pdf, id=470, 758.835pt x 395.879pt>
+) [11 <./figures/dataset.png>] (./results.tex
+<figures/dataset1.pdf, id=480, 758.835pt x 395.879pt>
 File: figures/dataset1.pdf Graphic file (type pdf)
 
 <use figures/dataset1.pdf>
-Package pdftex.def Info: figures/dataset1.pdf used on input line 19.
+Package pdftex.def Info: figures/dataset1.pdf used on input line 18.
 (pdftex.def)             Requested size: 387.00153pt x 201.89561pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<figures/dataset2.pdf, id=471, 758.835pt x 566.91798pt>
+ [12 <./figures/congestion.png>]
+<figures/dataset2.pdf, id=485, 758.835pt x 566.91798pt>
 File: figures/dataset2.pdf Graphic file (type pdf)
 
 <use figures/dataset2.pdf>
-Package pdftex.def Info: figures/dataset2.pdf used on input line 24.
+Package pdftex.def Info: figures/dataset2.pdf used on input line 23.
 (pdftex.def)             Requested size: 387.00153pt x 289.12434pt.
+ [13 <./figures/dataset1.pdf> <./figures/dataset2.pdf
 
+pdfTeX warning: pdflatex (file ./figures/dataset2.pdf): PDF inclusion: multiple
+ pdfs with page group included in a single page
+>] <figures/precision.pdf, id=505, 651.23299pt x 467.34601pt>
+File: figures/precision.pdf Graphic file (type pdf)
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+<use figures/precision.pdf>
+Package pdftex.def Info: figures/precision.pdf used on input line 41.
+(pdftex.def)             Requested size: 215.0023pt x 154.28883pt.
 
-[11 <./figures/dataset.png> <./figures/congestion.png>]) (./summary.tex)
-(./bib.tex
+<figures/prediction.pdf, id=506, 698.61pt x 523.55597pt>
+File: figures/prediction.pdf Graphic file (type pdf)
+
+<use figures/prediction.pdf>
+Package pdftex.def Info: figures/prediction.pdf used on input line 44.
+(pdftex.def)             Requested size: 215.0023pt x 161.12631pt.
+
+Overfull \hbox (2.43332pt too wide) in paragraph at lines 40--46
+[][] [] 
+ []
+
+<figures/prepred2.pdf, id=507, 698.61pt x 523.55597pt>
+File: figures/prepred2.pdf Graphic file (type pdf)
+
+<use figures/prepred2.pdf>
+Package pdftex.def Info: figures/prepred2.pdf used on input line 51.
+(pdftex.def)             Requested size: 275.20268pt x 206.24712pt.
+) [14 <./figures/precision.pdf> <./figures/prediction.pdf
+
+pdfTeX warning: pdflatex (file ./figures/prediction.pdf): PDF inclusion: multip
+le pdfs with page group included in a single page
+>] (./summary.tex) (./bib.tex
 LaTeX Font Info:    Try loading font information for OT1+lmtt on input line 6.
  (/usr/share/texmf-dist/tex/latex/lm/ot1lmtt.fd
 File: ot1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) (./code.tex
-[12 <./figures/dataset1.pdf>] (../../code/v1/interpolate.m
+)
+[15 <./figures/prepred2.pdf>]) (./Report.lof)
+\tf@lof=\write4
+\openout4 = `Report.lof'.
+
+ (./code.tex [16]
+(../../code/v1/interpolate.m
 LaTeX Font Info:    Try loading font information for TS1+lmtt on input line 15.
 
-
-(/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
+ (/usr/share/texmf-dist/tex/latex/lm/ts1lmtt.fd
 File: ts1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [13 <./figures/dataset2.pdf>]
-[14]) [15] (../../code/v1/optiFinder.m [16]) [17] (../../code/Final.m [18]
-[19] [20] [21] [22] [23] [24])) [25] (./Report.aux) ) 
+)
+[17] [18]) [19] (../../code/v1/optiFinder.m [20]) [21] (../../code/Final.m
+[22] [23] [24] [25] [26] [27] [28])) [29] (./Report.aux) ) 
 Here is how much of TeX's memory you used:
- 9370 strings out of 493108
- 131269 string characters out of 6140724
- 478195 words of memory out of 5000000
- 12592 multiletter control sequences out of 15000+600000
- 64865 words of font info for 62 fonts, out of 8000000 for 9000
+ 9440 strings out of 493108
+ 132296 string characters out of 6140724
+ 479705 words of memory out of 5000000
+ 12654 multiletter control sequences out of 15000+600000
+ 60281 words of font info for 60 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 42i,9n,42p,997b,2207s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/share/texmf-dist/fon
-ts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rmtt.en
-c}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-dist/fo
-nts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-mat
-hsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/share/tex
-mf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/lm/lmbx9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb></usr/
-share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/fonts/
-type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr10.pf
-b></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf-dist
-/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public/lm/l
-mr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri10.pfb></usr/share/tex
-mf-dist/fonts/type1/public/lm/lmri12.pfb></usr/share/texmf-dist/fonts/type1/pub
-lic/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt10.pfb></usr
-/share/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
-Output written on Report.pdf (25 pages, 1736754 bytes).
+ 42i,11n,42p,997b,2201s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/share/texmf-dis
+t/fonts/enc/dvips/lm/lm-ts1.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm
+tt.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{/usr/share/texmf-di
+st/fonts/enc/dvips/lm/lm-mathit.enc}{/usr/share/texmf-dist/fonts/enc/dvips/lm/l
+m-mathsy.enc}</usr/share/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></usr/share/texmf-dist/fonts/type
+1/public/lm/lmbx9.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><
+/usr/share/texmf-dist/fonts/type1/public/lm/lmmi12.pfb></usr/share/texmf-dist/f
+onts/type1/public/lm/lmmi8.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr
+10.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmr12.pfb></usr/share/texmf
+-dist/fonts/type1/public/lm/lmr17.pfb></usr/share/texmf-dist/fonts/type1/public
+/lm/lmr6.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmri12.pfb></usr/shar
+e/texmf-dist/fonts/type1/public/lm/lmsy10.pfb></usr/share/texmf-dist/fonts/type
+1/public/lm/lmtt12.pfb></usr/share/texmf-dist/fonts/type1/public/lm/lmtt8.pfb>
+Output written on Report.pdf (29 pages, 1842184 bytes).
 PDF statistics:
- 601 PDF objects out of 1000 (max. 8388607)
- 359 compressed objects within 4 object streams
+ 645 PDF objects out of 1000 (max. 8388607)
+ 385 compressed objects within 4 object streams
  0 named destinations out of 1000 (max. 500000)
- 87 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 102 words of extra memory for PDF output out of 10000 (max. 10000000)
 

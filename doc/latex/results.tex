@@ -1,4 +1,3 @@
-
 The reference data for congestion measurement is provided by ASTRA (Bundesamt f체r Strassen). There are four datasets: 
 \begin{itemize}
 \item Dataset 1: measurement of 2014 July, 18. - 19.
@@ -7,23 +6,48 @@ The reference data for congestion measurement is provided by ASTRA (Bundesamt f�
 \item Dataset 4: measurement of 2014 August, second
 \end{itemize}
 
-In a first step the model will be trained by dataset 1 and 2. The authors wrote a program which calculates specified values of a specified variable (moveProb and moveCorr) for a given number of times. With other words, it finds the optimal parameter values that minimizes the error of measured congestion. In a second step, the datasets 3 and 4 are used to evaluate the previous trained model.
+In a first step the model will be trained by dataset 1 and 2. The authors wrote a program which calculates specified values of a specified variable (moveProb and moveCorr) for a given number of times. With other words, it finds the optimal parameter values that minimize the error of measured congestion. In a second step, the datasets 3 and 4 are used to evaluate the previous trained model.
 
 \subsection{Preparing dataset -- curve fitting}
-The timestamps for the measurement are irregular. In order to compare the congestion from the model to the reference data, the breakpoints will be interpolated. The resulting curve can be used to generate regular timestamps for measurement. The authors have decided to go for a linear interpolation. That means that every point will be connected by a straight line with its neighbour, see on the figures below. A linear interpolation is reasonable, because the congestion length between two breakpoints can't change very quickly.
+The timestamps for the measurement are irregular. In order to compare the congestion from the model to the reference data, the breakpoints will be interpolated. The resulting curve can be used to generate regular timestamps for measurement. The authors have opted for a linear interpolation. That means that every point will be connected by a straight line with its neighbour, see on the figures below. A linear interpolation is reasonable because the congestion length between two breakpoints cannot change very quickly.
 
 %Die Referenzdaten vom ASTRA (Bundesamt f체r Strassen) enthalten Staumessungen. Diese sind in unregelm채ssigen Abst채nden gemessen. Um einen Vergleich mit der Messung im Modell 
 %vorzunehmen, werden die Datenpunkte Interpoliert. Die gefundene Kurve wird dann benutzt, um regelm채ssige Messungen zu generieren. Die Authoren haben sich f체r eine lineare %Interpolation entschieden, sodass Punkt zu Punkt mit einer Geraden verbunden wird. Dies ist sinnvoll, weil die L채nge des Staus zwischen zwei Punkten nur geringf체gig 채ndern kann.
 
-\begin{figure}[h]\centering
+\begin{figure}[H]\centering
 \includegraphics[width=.9\textwidth]{dataset1.pdf}
 \caption{Dataset 1}
 \end{figure}
-
-\begin{figure}[h]\centering
+\vspace*{-1.5cm}
+\begin{figure}[H]\centering
 \includegraphics[width=.9\textwidth]{dataset2.pdf}
 \caption{Dataset 2, added regular measurements for comparison}
 \end{figure}
 
-\subsection{train model}
-\newpage
+\subsection{Train model}
+There are two parameters to fit the model:
+\begin{itemize}
+\item moveProb: describes how accurate cars moving forward
+\item moveCorr: increases moveProb in case of congestion
+\end{itemize}
+
+The program optiFinder was written to find the best setting of these two parameters. Important here by are the quantities \textit{prediction} and \textit{precision}.
+The latter describes the relative ratio between the area outside the intersection and the area of the reference data itself. One can imagine two portions $A$ and $B$ and its intersection $A \cap B$. The precision would be $\textrm{precision} = 1 - (A \cup B - A \cap B) / A$, where $A$ is the area from the reference data.
+
+Prediction is the ratio between all x-values that are inscribed by the intersection of the two curves and the reference curve. The big difference to precision is the way of counting. It would be very beneficial for the prediction value, if there is a lot of congestion. The outcome of this would be a poor precision value. That's why precision and prediction are used to find the optimal parameter. Because precision is more important, the weight for it is three times greater than for prediction.
+
+\begin{figure}[H]
+\begin{minipage}[t]{.5\textwidth}
+\includegraphics[width=\textwidth]{precision.pdf}
+\end{minipage}
+\begin{minipage}[t]{.5\textwidth}
+\includegraphics[width=\textwidth]{prediction.pdf}
+\end{minipage}
+\caption{left: precision, right prediction for Dataset 2}
+\end{figure}
+
+The weighting of prediction and precision lead to the values for moveProb and moveCorr.
+\begin{figure}[H]\centering
+\includegraphics[width=.64\textwidth]{prepred2.pdf}
+\caption{resulting values from weighting prediction (1x) and precision (3x)}
+\end{figure}
