@@ -2,7 +2,7 @@
 
 > * Group Name: Traffic Jammers Group
 > * Group participants names: Eric Hayoz, Janick Zwyssig
-> * Project Title: Predicting Traffic Congestions at „Gotthard-Strassentunnel“
+> * Project Title: Modelling the phenomenon of congestion at Gotthard
 
 ## General Introduction
 
