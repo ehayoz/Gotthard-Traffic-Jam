@@ -31,6 +31,8 @@ for moveProb = mp_start:mp_step:mp_stop
    end
    evaluation(1,v) = precision_tot/rounds;
    evaluation(2,v) = prediction_tot/rounds;
+   precision_tot = 0;
+   prediction_tot = 0;
  end
 end
 
