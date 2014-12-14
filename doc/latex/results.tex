@@ -47,7 +47,26 @@ Prediction is the ratio between all x-values that are inscribed by the intersect
 \end{figure}
 
 The weighting of prediction and precision lead to the values for moveProb and moveCorr.
-\begin{figure}[H]\centering
-\includegraphics[width=.64\textwidth]{prepred2.pdf}
-\caption{resulting values from weighting prediction (1x) and precision (3x)}
+
+
+\begin{figure}[H]
+\begin{minipage}[t]{.48\textwidth}
+\includegraphics[width=\textwidth]{prepred1.pdf}
+\end{minipage}
+\begin{minipage}[t]{.48\textwidth}
+\includegraphics[width=\textwidth]{prepred2.pdf}
+\end{minipage}
+\caption{left: Dataset 1, right: Dataset 2, values from prediction (1x) and precision (3x)}
+\end{figure}
+
+The mean of the two found parameters are: \\$moveProb = 0.425$ and $moveCorr = 0.066$.
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{dataset3.pdf}
+\caption{Dataset 3 --  precision = 0.31, prediction = 0.84}
+\end{figure}
+
+\begin{figure}[H]
+\includegraphics[width=\textwidth]{dataset4.pdf}
+\caption{Dataset 4 --  precision = 0.17, prediction = 0.77}
 \end{figure}
